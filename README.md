@@ -17,8 +17,6 @@ make
 CHANGES
 FFMPEG tcp.c http.c avio.c network.c (all have socket programming that needs to be changed to mtcp)
 
-github access token : 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
-
 
 
 FFMPEG
