@@ -1,0 +1,20 @@
+ffplay started on 2021-05-15 at 00:35:26
+Report written to "ffplay-20210515-003526.log"
+Log level: 48
+Command line:
+./ffplay -report -i /home/antonello/Downloads/test2.mp412312
+ffplay version 4.3.2 Copyright (c) 2003-2021 the FFmpeg developers
+  built with gcc 9 (Ubuntu 9.3.0-17ubuntu1~20.04)
+  configuration: 
+  libavutil      56. 51.100 / 56. 51.100
+  libavcodec     58. 91.100 / 58. 91.100
+  libavformat    58. 45.100 / 58. 45.100
+  libavdevice    58. 10.100 / 58. 10.100
+  libavfilter     7. 85.100 /  7. 85.100
+  libswscale      5.  7.100 /  5.  7.100
+  libswresample   3.  7.100 /  3.  7.100
+Initialized opengl renderer.
+[NULL @ 0x7f91f8000bc0] Opening '/home/antonello/Downloads/test2.mp412312' for reading
+[file @ 0x7f91f8001740] Setting default whitelist 'file,crypto,data'
+/home/antonello/Downloads/test2.mp412312: No such file or directory
+    nan    :  0.000 fd=   0 aq=    0KB vq=    0KB sq=    0B f=0/0   
