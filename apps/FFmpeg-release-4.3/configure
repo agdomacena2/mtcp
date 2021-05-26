@@ -3723,7 +3723,7 @@ mandir_default='${prefix}/share/man'
 
 # toolchain
 ar_default="ar"
-cc_default="gcc"
+cc_default="gcc -fgnu89-inline"
 cxx_default="g++"
 host_cc_default="gcc"
 doxygen_default="doxygen"
