@@ -32,6 +32,15 @@
 #include <poll.h>
 #endif
 
+#include <mtcp_api.h>
+#include <mtcp_epoll.h>
+#include "cpu.h"
+#include "rss.h"
+#include "http_parsing.h"
+#include "netlib.h"
+#include "debug.h"
+
+
 typedef struct TCPContext {
     const AVClass *class;
     int fd;
@@ -100,7 +109,7 @@ static void customize_fd(void *ctx, int fd)
 }
 
 /* return non zero if error */
-static int tcp_open(URLContext *h, const char *uri, int flags)
+static int tcp_open(mctx_t mctx, URLContext *h, const char *uri, int flags)
 {
     struct addrinfo hints = { 0 }, *ai, *cur_ai;
     int port, fd = -1;
@@ -170,7 +179,7 @@ static int tcp_open(URLContext *h, const char *uri, int flags)
 
     if (s->listen > 0) {
         while (cur_ai && fd < 0) {
-            fd = ff_socket(cur_ai->ai_family,
+            fd = ff_socket(mctx, cur_ai->ai_family,
                            cur_ai->ai_socktype,
                            cur_ai->ai_protocol);
             if (fd < 0) {
@@ -185,17 +194,17 @@ static int tcp_open(URLContext *h, const char *uri, int flags)
 
     if (s->listen == 2) {
         // multi-client
-        if ((ret = ff_listen(fd, cur_ai->ai_addr, cur_ai->ai_addrlen)) < 0)
+        if ((ret = ff_listen(mctx, fd, cur_ai->ai_addr, cur_ai->ai_addrlen)) < 0)
             goto fail1;
     } else if (s->listen == 1) {
         // single client
-        if ((ret = ff_listen_bind(fd, cur_ai->ai_addr, cur_ai->ai_addrlen,
+        if ((ret = ff_listen_bind(mctx, fd, cur_ai->ai_addr, cur_ai->ai_addrlen,
                                   s->listen_timeout, h)) < 0)
             goto fail1;
         // Socket descriptor already closed here. Safe to overwrite to client one.
         fd = ret;
     } else {
-        ret = ff_connect_parallel(ai, s->open_timeout / 1000, 3, h, &fd, customize_fd, s);
+        ret = ff_connect_parallel(mctx, ai, s->open_timeout / 1000, 3, h, &fd, customize_fd, s);
         if (ret < 0)
             goto fail1;
     }
@@ -208,12 +217,12 @@ static int tcp_open(URLContext *h, const char *uri, int flags)
 
  fail1:
     if (fd >= 0)
-        closesocket(fd);
+        mtcp_close(mctx, fd);
     freeaddrinfo(ai);
     return ret;
 }
 
-static int tcp_accept(URLContext *s, URLContext **c)
+static int tcp_accept(mctx_t mctx, URLContext *s, URLContext **c)
 {
     TCPContext *sc = s->priv_data;
     TCPContext *cc;
@@ -222,7 +231,7 @@ static int tcp_accept(URLContext *s, URLContext **c)
     if ((ret = ffurl_alloc(c, s->filename, s->flags, &s->interrupt_callback)) < 0)
         return ret;
     cc = (*c)->priv_data;
-    ret = ff_accept(sc->fd, sc->listen_timeout, s);
+    ret = ff_accept(mctx, sc->fd, sc->listen_timeout, s);
     if (ret < 0) {
         ffurl_closep(c);
         return ret;
@@ -231,7 +240,7 @@ static int tcp_accept(URLContext *s, URLContext **c)
     return 0;
 }
 
-static int tcp_read(URLContext *h, uint8_t *buf, int size)
+static int tcp_read(mctx_t mctx, URLContext *h, uint8_t *buf, int size)
 {
     TCPContext *s = h->priv_data;
     int ret;
@@ -241,13 +250,13 @@ static int tcp_read(URLContext *h, uint8_t *buf, int size)
         if (ret)
             return ret;
     }
-    ret = recv(s->fd, buf, size, 0);
+    ret = mtcp_recv(mctx, s->fd, buf, size, 0);
     if (ret == 0)
         return AVERROR_EOF;
     return ret < 0 ? ff_neterrno() : ret;
 }
 
-static int tcp_write(URLContext *h, const uint8_t *buf, int size)
+static int tcp_write(mctx_t mctx, URLContext *h, const uint8_t *buf, int size)
 {
     TCPContext *s = h->priv_data;
     int ret;
@@ -257,13 +266,13 @@ static int tcp_write(URLContext *h, const uint8_t *buf, int size)
         if (ret)
             return ret;
     }
-    ret = send(s->fd, buf, size, MSG_NOSIGNAL);
+    ret = mtcp_write(mctx, s->fd, buf, size);
     return ret < 0 ? ff_neterrno() : ret;
 }
 
-static int tcp_shutdown(URLContext *h, int flags)
+static int tcp_shutdown(mctx_t mctx, URLContext *h, int flags)
 {
-    TCPContext *s = h->priv_data;
+    /*TCPContext *s = h->priv_data;
     int how;
 
     if (flags & AVIO_FLAG_WRITE && flags & AVIO_FLAG_READ) {
@@ -272,15 +281,16 @@ static int tcp_shutdown(URLContext *h, int flags)
         how = SHUT_WR;
     } else {
         how = SHUT_RD;
-    }
+    }*/
 
-    return shutdown(s->fd, how);
+    //return tcp_close(mctx, *h);
+    return 0;
 }
 
-static int tcp_close(URLContext *h)
+static int tcp_close(mctx_t mctx, URLContext *h)
 {
     TCPContext *s = h->priv_data;
-    closesocket(s->fd);
+    mtcp_close(mctx, s->fd);
     return 0;
 }
 
@@ -290,7 +300,7 @@ static int tcp_get_file_handle(URLContext *h)
     return s->fd;
 }
 
-static int tcp_get_window_size(URLContext *h)
+static int tcp_get_window_size(mctx_t mctx, URLContext *h)
 {
     TCPContext *s = h->priv_data;
     int avail;
@@ -304,7 +314,7 @@ static int tcp_get_window_size(URLContext *h)
     }
 #endif
 
-    if (getsockopt(s->fd, SOL_SOCKET, SO_RCVBUF, &avail, &avail_len)) {
+    if (mtcp_getsockopt(mctx, s->fd, SOL_SOCKET, SO_RCVBUF, &avail, &avail_len)) {
         return ff_neterrno();
     }
     return avail;
