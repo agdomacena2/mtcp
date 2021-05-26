@@ -28,6 +28,15 @@
 #include "libavutil/mem.h"
 #include "libavutil/time.h"
 
+
+#include <mtcp_api.h>
+#include <mtcp_epoll.h>
+#include "cpu.h"
+#include "rss.h"
+#include "http_parsing.h"
+#include "netlib.h"
+#include "debug.h"
+
 int ff_tls_init(void)
 {
 #if CONFIG_TLS_PROTOCOL
@@ -180,16 +189,17 @@ static int ff_poll_interrupt(struct pollfd *p, nfds_t nfds, int timeout,
     return ret;
 }
 
-int ff_socket(int af, int type, int proto)
+int ff_socket(mctx_t mctx, int af, int type, int proto)
 {
+
     int fd;
 
 #ifdef SOCK_CLOEXEC
-    fd = socket(af, type | SOCK_CLOEXEC, proto);
+    fd = mtcp_socket(mctx, af, type | SOCK_CLOEXEC, proto);
     if (fd == -1 && errno == EINVAL)
 #endif
     {
-        fd = socket(af, type, proto);
+        fd = mtcp_socket(mctx, af, type, proto);
 #if HAVE_FCNTL
         if (fd != -1) {
             if (fcntl(fd, F_SETFD, FD_CLOEXEC) == -1)
@@ -199,7 +209,7 @@ int ff_socket(int af, int type, int proto)
     }
 #ifdef SO_NOSIGPIPE
     if (fd != -1) {
-        if (setsockopt(fd, SOL_SOCKET, SO_NOSIGPIPE, &(int){1}, sizeof(int))) {
+        if (mtcp_setsockopt(mctx, fd, SOL_SOCKET, SO_NOSIGPIPE, &(int){1}, sizeof(int))) {
              av_log(NULL, AV_LOG_WARNING, "setsockopt(SO_NOSIGPIPE) failed\n");
         }
     }
@@ -207,25 +217,25 @@ int ff_socket(int af, int type, int proto)
     return fd;
 }
 
-int ff_listen(int fd, const struct sockaddr *addr,
+int ff_listen(mctx_t mctx, int fd, const struct sockaddr *addr,
               socklen_t addrlen)
 {
     int ret;
     int reuse = 1;
-    if (setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(reuse))) {
+    if (mtcp_setsockopt(mctx, fd, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(reuse))) {
         av_log(NULL, AV_LOG_WARNING, "setsockopt(SO_REUSEADDR) failed\n");
     }
-    ret = bind(fd, addr, addrlen);
+    ret = mtcp_bind(mctx, fd, addr, addrlen);
     if (ret)
         return ff_neterrno();
 
-    ret = listen(fd, 1);
+    ret = mtcp_listen(mctx, fd, 1);
     if (ret)
         return ff_neterrno();
     return ret;
 }
 
-int ff_accept(int fd, int timeout, URLContext *h)
+int ff_accept(mctx_t mctx, int fd, int timeout, URLContext *h)
 {
     int ret;
     struct pollfd lp = { fd, POLLIN, 0 };
@@ -234,7 +244,7 @@ int ff_accept(int fd, int timeout, URLContext *h)
     if (ret < 0)
         return ret;
 
-    ret = accept(fd, NULL, NULL);
+    ret = mtcp_accept(mctx, fd, NULL, NULL);
     if (ret < 0)
         return ff_neterrno();
     if (ff_socket_nonblock(ret, 1) < 0)
@@ -243,19 +253,19 @@ int ff_accept(int fd, int timeout, URLContext *h)
     return ret;
 }
 
-int ff_listen_bind(int fd, const struct sockaddr *addr,
+int ff_listen_bind(mctx_t mctx, int fd, const struct sockaddr *addr,
                    socklen_t addrlen, int timeout, URLContext *h)
 {
     int ret;
-    if ((ret = ff_listen(fd, addr, addrlen)) < 0)
+    if ((ret = ff_listen(mctx, fd, addr, addrlen)) < 0)
         return ret;
-    if ((ret = ff_accept(fd, timeout, h)) < 0)
+    if ((ret = ff_accept(mctx, fd, timeout, h)) < 0)
         return ret;
-    closesocket(fd);
+    mtcp_close(mctx, fd);
     return ret;
 }
 
-int ff_listen_connect(int fd, const struct sockaddr *addr,
+int ff_listen_connect(mctx_t mctx, int fd, const struct sockaddr *addr,
                       socklen_t addrlen, int timeout, URLContext *h,
                       int will_try_next)
 {
@@ -266,7 +276,7 @@ int ff_listen_connect(int fd, const struct sockaddr *addr,
     if (ff_socket_nonblock(fd, 1) < 0)
         av_log(h, AV_LOG_DEBUG, "ff_socket_nonblock failed\n");
 
-    while ((ret = connect(fd, addr, addrlen))) {
+    while ((ret = mtcp_connect(mctx, fd, addr, addrlen))) {
         ret = ff_neterrno();
         switch (ret) {
         case AVERROR(EINTR):
@@ -279,7 +289,7 @@ int ff_listen_connect(int fd, const struct sockaddr *addr,
             if (ret < 0)
                 return ret;
             optlen = sizeof(ret);
-            if (getsockopt (fd, SOL_SOCKET, SO_ERROR, &ret, &optlen))
+            if (mtcp_getsockopt (mctx, fd, SOL_SOCKET, SO_ERROR, &ret, &optlen))
                 ret = AVUNERROR(ff_neterrno());
             if (ret != 0) {
                 char errbuf[100];
@@ -353,7 +363,7 @@ struct ConnectionAttempt {
 
 // Returns < 0 on error, 0 on successfully started connection attempt,
 // > 0 for a connection that succeeded already.
-static int start_connect_attempt(struct ConnectionAttempt *attempt,
+static int start_connect_attempt(mctx_t mctx, struct ConnectionAttempt *attempt,
                                  struct addrinfo **ptr, int timeout_ms,
                                  URLContext *h,
                                  void (*customize_fd)(void *, int), void *customize_ctx)
@@ -363,7 +373,7 @@ static int start_connect_attempt(struct ConnectionAttempt *attempt,
 
     *ptr = ai->ai_next;
 
-    attempt->fd = ff_socket(ai->ai_family, ai->ai_socktype, ai->ai_protocol);
+    attempt->fd = ff_socket(mctx, ai->ai_family, ai->ai_socktype, ai->ai_protocol);
     if (attempt->fd < 0)
         return ff_neterrno();
     attempt->deadline_us = av_gettime_relative() + timeout_ms * 1000;
@@ -374,12 +384,12 @@ static int start_connect_attempt(struct ConnectionAttempt *attempt,
     if (customize_fd)
         customize_fd(customize_ctx, attempt->fd);
 
-    while ((ret = connect(attempt->fd, ai->ai_addr, ai->ai_addrlen))) {
+    while ((ret = mtcp_connect(mctx, attempt->fd, ai->ai_addr, ai->ai_addrlen))) {
         ret = ff_neterrno();
         switch (ret) {
         case AVERROR(EINTR):
             if (ff_check_interrupt(&h->interrupt_callback)) {
-                closesocket(attempt->fd);
+                mtcp_close(mctx,attempt->fd);
                 attempt->fd = -1;
                 return AVERROR_EXIT;
             }
@@ -388,7 +398,7 @@ static int start_connect_attempt(struct ConnectionAttempt *attempt,
         case AVERROR(EAGAIN):
             return 0;
         default:
-            closesocket(attempt->fd);
+            mtcp_close(mctx, attempt->fd);
             attempt->fd = -1;
             return ret;
         }
@@ -400,7 +410,7 @@ static int start_connect_attempt(struct ConnectionAttempt *attempt,
 // RFC 8305 (or sooner if an earlier attempt fails).
 #define NEXT_ATTEMPT_DELAY_MS 200
 
-int ff_connect_parallel(struct addrinfo *addrs, int timeout_ms_per_address,
+int ff_connect_parallel(mctx_t mctx, struct addrinfo *addrs, int timeout_ms_per_address,
                         int parallel, URLContext *h, int *fd,
                         void (*customize_fd)(void *, int), void *customize_ctx)
 {
@@ -430,7 +440,7 @@ int ff_connect_parallel(struct addrinfo *addrs, int timeout_ms_per_address,
                         NI_NUMERICHOST | NI_NUMERICSERV);
             av_log(h, AV_LOG_VERBOSE, "Starting connection attempt to %s port %s\n",
                                       hostbuf, portbuf);
-            last_err = start_connect_attempt(&attempts[nb_attempts], &addrs,
+            last_err = start_connect_attempt(mctx, &attempts[nb_attempts], &addrs,
                                              timeout_ms_per_address, h,
                                              customize_fd, customize_ctx);
             if (last_err < 0) {
@@ -441,7 +451,7 @@ int ff_connect_parallel(struct addrinfo *addrs, int timeout_ms_per_address,
             }
             if (last_err > 0) {
                 for (i = 0; i < nb_attempts; i++)
-                    closesocket(attempts[i].fd);
+                    mtcp_close(mctx, attempts[i].fd);
                 *fd = attempts[nb_attempts].fd;
                 return 0;
             }
@@ -471,7 +481,7 @@ int ff_connect_parallel(struct addrinfo *addrs, int timeout_ms_per_address,
                 // Some sort of action for this socket, check its status (either
                 // a successful connection or an error).
                 optlen = sizeof(last_err);
-                if (getsockopt(attempts[i].fd, SOL_SOCKET, SO_ERROR, &last_err, &optlen))
+                if (mtcp_getsockopt(mctx, attempts[i].fd, SOL_SOCKET, SO_ERROR, &last_err, &optlen))
                     last_err = ff_neterrno();
                 else if (last_err != 0)
                     last_err = AVERROR(last_err);
@@ -480,7 +490,7 @@ int ff_connect_parallel(struct addrinfo *addrs, int timeout_ms_per_address,
                     // connection. Close other sockets and return this one.
                     for (j = 0; j < nb_attempts; j++)
                         if (j != i)
-                            closesocket(attempts[j].fd);
+                            mtcp_close(mctx, attempts[j].fd);
                     *fd = attempts[i].fd;
                     getnameinfo(attempts[i].addr->ai_addr, attempts[i].addr->ai_addrlen,
                                 hostbuf, sizeof(hostbuf), portbuf, sizeof(portbuf),
@@ -503,7 +513,7 @@ int ff_connect_parallel(struct addrinfo *addrs, int timeout_ms_per_address,
             av_strerror(last_err, errbuf, sizeof(errbuf));
             av_log(h, AV_LOG_VERBOSE, "Connection attempt to %s port %s "
                                       "failed: %s\n", hostbuf, portbuf, errbuf);
-            closesocket(attempts[i].fd);
+            mtcp_close(mctx, attempts[i].fd);
             memmove(&attempts[i], &attempts[i + 1],
                     (nb_attempts - i - 1) * sizeof(*attempts));
             memmove(&pfd[i], &pfd[i + 1],
@@ -513,7 +523,7 @@ int ff_connect_parallel(struct addrinfo *addrs, int timeout_ms_per_address,
         }
     }
     for (i = 0; i < nb_attempts; i++)
-        closesocket(attempts[i].fd);
+        mtcp_close(mctx, attempts[i].fd);
     if (last_err >= 0)
         last_err = AVERROR(ECONNREFUSED);
     if (last_err != AVERROR_EXIT) {

@@ -30,6 +30,14 @@
 #include "avio.h"
 #include "url.h"
 
+#include <mtcp_api.h>
+#include <mtcp_epoll.h>
+#include "cpu.h"
+#include "rss.h"
+#include "http_parsing.h"
+#include "netlib.h"
+#include "debug.h"
+
 #if HAVE_UNISTD_H
 #include <unistd.h>
 #endif
@@ -260,7 +268,7 @@ int ff_is_multicast_address(struct sockaddr *addr);
  * @return        A non-blocking file descriptor on success
  *                or an AVERROR on failure.
  */
-int ff_listen_bind(int fd, const struct sockaddr *addr,
+int ff_listen_bind(mctx_t mctx, int fd, const struct sockaddr *addr,
                    socklen_t addrlen, int timeout,
                    URLContext *h);
 
@@ -271,7 +279,7 @@ int ff_listen_bind(int fd, const struct sockaddr *addr,
  * @param addrlen Third argument of bind().
  * @return        0 on success or an AVERROR on failure.
  */
-int ff_listen(int fd, const struct sockaddr *addr, socklen_t addrlen);
+int ff_listen(mctx_t mctx, int fd, const struct sockaddr *addr, socklen_t addrlen);
 
 /**
  * Poll for a single connection on the passed file descriptor.
@@ -282,7 +290,7 @@ int ff_listen(int fd, const struct sockaddr *addr, socklen_t addrlen);
  * @return        A non-blocking file descriptor on success
  *                or an AVERROR on failure.
  */
-int ff_accept(int fd, int timeout, URLContext *h);
+int ff_accept(mctx_t mctx, int fd, int timeout, URLContext *h);
 
 /**
  * Connect to a file descriptor and poll for result.
@@ -299,13 +307,13 @@ int ff_accept(int fd, int timeout, URLContext *h);
  *                 logged errors.
  * @return         0 on success, AVERROR on failure.
  */
-int ff_listen_connect(int fd, const struct sockaddr *addr,
+int ff_listen_connect(mctx_t mctx, int fd, const struct sockaddr *addr,
                       socklen_t addrlen, int timeout,
                       URLContext *h, int will_try_next);
 
 int ff_http_match_no_proxy(const char *no_proxy, const char *hostname);
 
-int ff_socket(int domain, int type, int protocol);
+int ff_socket(mctx_t mctx, int domain, int type, int protocol);
 
 void ff_log_net_error(void *ctx, int level, const char* prefix);
 
@@ -333,7 +341,7 @@ void ff_log_net_error(void *ctx, int level, const char* prefix);
  * @param customize_ctx Context parameter passed to customize_fd.
  * @return         0 on success, AVERROR on failure.
  */
-int ff_connect_parallel(struct addrinfo *addrs, int timeout_ms_per_address,
+int ff_connect_parallel(mctx_t mctx, struct addrinfo *addrs, int timeout_ms_per_address,
                         int parallel, URLContext *h, int *fd,
                         void (*customize_fd)(void *, int), void *customize_ctx);
 
