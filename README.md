@@ -8,7 +8,7 @@ mTCP source code is distributed under the Modified BSD License. For
 more detail, please refer to the LICENSE. The license term of io_engine 
 driver and ported applications may differ from the mTCP’s.
 
-FFMPEG SETUP ./configure --extra-ldflags='-L/home/ndsg/Downloads/mtcp/mtcp/lib/libmtcp' --extra-ldflags='-L${RTE_SDK}/${RTE_TARGET}lib/ldflags.txt' --extra-cflags='-I/home/ndsg/Downloads/mtcp/mtcp/include' make
+FFMPEG SETUP ./configure --extra-ldflags='-L/home/ndsg/Downloads/mtcp/mtcp/lib/libmtcp' --extra-ldflags='-L${RTE_SDK}/${RTE_TARGET}lib/ldflags.txt' --extra-cflags='-I/home/ndsg/Downloads/mtcp/mtcp/include' --extra-cflags='-fgnu89-inline' make
 
 ## Prerequisites
 
