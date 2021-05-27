@@ -8,7 +8,8 @@ mTCP source code is distributed under the Modified BSD License. For
 more detail, please refer to the LICENSE. The license term of io_engine 
 driver and ported applications may differ from the mTCP’s.
 
-FFMPEG SETUP ./configure --extra-ldflags='-L/home/ndsg/Downloads/mtcp/mtcp/lib/libmtcp' --extra-ldflags='-L${RTE_SDK}/${RTE_TARGET}lib/ldflags.txt' --extra-cflags='-I/home/ndsg/Downloads/mtcp/mtcp/include' --extra-cflags='-fgnu89-inline' make
+FFMPEG SETUP ./configure --extra-ldflags='-fgnu89-inline' --extra-cflags='-fgnu89-inline' --extra-ldflags='/home/ndsg/Downloads/mtcp/mtcp/lib/libmtcp.a' --extra-ldflags='-L/home/ndsg/Downloads/mtcp/mtcp/lib/libmtcp' --extra-ldflags='-L${RTE_SDK}/${RTE_TARGET}lib/ldflags.txt' --extra-cflags='-I/home/ndsg/Downloads/mtcp/mtcp/include' --extra-cflags='-I/home/ndsg/Downloads/mtcp/util/include'
+ make
 
 ## Prerequisites
 
@@ -28,38 +29,6 @@ created a new LKM dpdk-iface-kmow. We also modified
 ``mk/rte.app.mk`` file to ease the compilation
 process of mTCP applications. We recommend using our package for DPDK
 installation.
-
-### CCP support
-
-You can optionally use [CCP](https://ccp-project.github.io/)'s congestion 
-control implementation rather than mTCP's. You'll have wider selection of 
-congestion control algorithms with CCP.
-(Currently this feature is experimental and under revision.)
-
-Using [CCP](https://ccp-project.github.io/) for congestion control (disabled by
-default), requires the CCP library. If you would like to enable CCP, simply run
-configure script with `--enable-ccp` option.
-
-1. Install Rust. Any installation method should be fine. We recommend using
-   rustup:
-
-    ```bash
-    curl https://sh.rustup.rs -sSf | sh -- -y -v --default-toolchain nightly
-    ````
-
-2. Install the CCP command line utility:
-
-    ```bash
-    cargo install portus --bin ccp
-    ```
-
-3. Build the library (comes with Reno and Cubic by default, use `ccp get` to add others):
-
-    ```
-    ccp makelib
-    ```
-
-4. You will also need to link your application against `-lccp` and `-lstartccp` as demonstrated in apps/example/Makefie.in
 
 ## Included directories
 

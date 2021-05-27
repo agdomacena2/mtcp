@@ -463,10 +463,10 @@ OBJS-$(CONFIG_RTP_MUXER)                 += rtp.o         \
                                             rtpenc_vp9.o                \
                                             rtpenc_xiph.o \
                                             avc.o hevc.o
-OBJS-$(CONFIG_RTSP_DEMUXER)              += rtsp.o rtspdec.o httpauth.o \
-                                            urldecode.o
-OBJS-$(CONFIG_RTSP_MUXER)                += rtsp.o rtspenc.o httpauth.o \
-                                            urldecode.o
+#OBJS-$(CONFIG_RTSP_DEMUXER)              += rtsp.o rtspdec.o httpauth.o \
+#                                            urldecode.o
+#OBJS-$(CONFIG_RTSP_MUXER)                += rtsp.o rtspenc.o httpauth.o \
+#                                            urldecode.o
 OBJS-$(CONFIG_S337M_DEMUXER)             += s337m.o spdif.o
 OBJS-$(CONFIG_SAMI_DEMUXER)              += samidec.o subtitles.o
 OBJS-$(CONFIG_SAP_DEMUXER)               += sapdec.o
@@ -476,7 +476,7 @@ OBJS-$(CONFIG_SBC_MUXER)                 += rawenc.o
 OBJS-$(CONFIG_SBG_DEMUXER)               += sbgdec.o
 OBJS-$(CONFIG_SCC_DEMUXER)               += sccdec.o subtitles.o
 OBJS-$(CONFIG_SCC_MUXER)                 += sccenc.o subtitles.o
-OBJS-$(CONFIG_SDP_DEMUXER)               += rtsp.o
+#OBJS-$(CONFIG_SDP_DEMUXER)               += rtsp.o
 OBJS-$(CONFIG_SDR2_DEMUXER)              += sdr2.o
 OBJS-$(CONFIG_SDS_DEMUXER)               += sdsdec.o
 OBJS-$(CONFIG_SDX_DEMUXER)               += sdxdec.o pcm.o
@@ -598,8 +598,8 @@ OBJS-$(CONFIG_FFRTMPCRYPT_PROTOCOL)      += rtmpcrypt.o rtmpdigest.o rtmpdh.o
 OBJS-$(CONFIG_FFRTMPHTTP_PROTOCOL)       += rtmphttp.o
 OBJS-$(CONFIG_FILE_PROTOCOL)             += file.o
 OBJS-$(CONFIG_FTP_PROTOCOL)              += ftp.o urldecode.o
-OBJS-$(CONFIG_GOPHER_PROTOCOL)           += gopher.o
-OBJS-$(CONFIG_HLS_PROTOCOL)              += hlsproto.o
+#OBJS-$(CONFIG_GOPHER_PROTOCOL)           += gopher.o
+#OBJS-$(CONFIG_HLS_PROTOCOL)              += hlsproto.o
 OBJS-$(CONFIG_HTTP_PROTOCOL)             += http.o httpauth.o urldecode.o
 OBJS-$(CONFIG_HTTPPROXY_PROTOCOL)        += http.o httpauth.o urldecode.o
 OBJS-$(CONFIG_HTTPS_PROTOCOL)            += http.o httpauth.o urldecode.o
@@ -651,7 +651,7 @@ OBJS-$(CONFIG_IEC61883_INDEV)            += dv.o
 SLIBOBJS-$(HAVE_GNU_WINDRES)             += avformatres.o
 
 SKIPHEADERS-$(CONFIG_FFRTMPCRYPT_PROTOCOL) += rtmpdh.h
-SKIPHEADERS-$(CONFIG_NETWORK)            += network.h rtsp.h
+#SKIPHEADERS-$(CONFIG_NETWORK)            += network.h rtsp.h
 
 TESTPROGS = seek                                                        \
             url                                                         \

@@ -661,7 +661,7 @@ static int http_get_line(HTTPContext *s, char *line, int line_size)
 static int check_http_code(URLContext *h, int http_code, const char *end)
 {
     HTTPContext *s = h->priv_data;
-    /* error codes are 4xx and 5xx, but regard 401 as a success, so we
+    /* error codes are 4xx and 5xx, but regard 401 as a success, s we
      * don't abort until all headers have been parsed. */
     if (http_code >= 400 && http_code < 600 &&
         (http_code != 401 || s->auth_state.auth_type != HTTP_AUTH_NONE) &&
