@@ -8,8 +8,24 @@ mTCP source code is distributed under the Modified BSD License. For
 more detail, please refer to the LICENSE. The license term of io_engine 
 driver and ported applications may differ from the mTCP’s.
 
-FFMPEG SETUP ./configure --extra-ldflags='-fgnu89-inline' --extra-cflags='-fgnu89-inline' --extra-ldflags='/home/ndsg/Downloads/mtcp/mtcp/lib/libmtcp.a' --extra-ldflags='-L/home/ndsg/Downloads/mtcp/mtcp/lib/libmtcp' --extra-ldflags='-L${RTE_SDK}/${RTE_TARGET}lib/ldflags.txt' --extra-cflags='-I/home/ndsg/Downloads/mtcp/mtcp/include' --extra-cflags='-I/home/ndsg/Downloads/mtcp/util/include'
- make
+## FFMPEG SETUP 
+### Does not Work
+./configure --extra-ldflags='-fgnu89-inline' --extra-cflags='-fgnu89-inline' --extra-ldflags='/home/ndsg/Downloads/mtcp/mtcp/lib/libmtcp.a' \
+--extra-ldflags='-L/home/ndsg/Downloads/mtcp/mtcp/lib/libmtcp' --extra-ldflags='-L${RTE_SDK}/${RTE_TARGET}lib/ldflags.txt' \
+--extra-cflags='-I/home/ndsg/Downloads/mtcp/mtcp/include' --extra-cflags='-I/home/ndsg/Downloads/mtcp/util/include'
+
+Need to find a way such that the contents of ldflags.txt can be used by the compiler
+
+### Use This First
+./configure --extra-ldflags='-fgnu89-inline' --extra-cflags='-fgnu89-inline' --extra-ldflags='/home/ndsg/Downloads/mtcp/mtcp/lib/libmtcp.a' \
+--extra-ldflags='-L/home/ndsg/Downloads/mtcp/mtcp/lib/libmtcp' --extra-cflags='-I/home/ndsg/Downloads/mtcp/mtcp/include' \
+--extra-cflags='-I/home/ndsg/Downloads/mtcp/util/include' --extra-ldflags='-L${RTE_SDK}/${RTE_TARGET}lib'
+
+###AFTER CONFIGURE
+Replace contents of protocol_list.c, muxer_list.c and demuxer_list.c with the contents of
+new_protocol_list.c, new_muxer_list.c and new_demuxer_list.c respectively.
+
+make
 
 ## Prerequisites
 
