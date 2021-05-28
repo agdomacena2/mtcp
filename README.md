@@ -20,16 +20,10 @@ cd Downloads/mtcp/apps/FFmpeg-release-4.3
 chmod +x setup.sh
 ```
 
-3. Run the setup script
+3. Run the setup script and wait for the setup to complete
 ```bash
 ./setup.sh
 ```
-
-### AFTER CONFIGURE
-Replace contents of protocol_list.c, muxer_list.c and demuxer_list.c with the contents of
-new_protocol_list.c, new_muxer_list.c and new_demuxer_list.c respectively.
-
-make
 
 ## Prerequisites
 
