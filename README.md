@@ -9,18 +9,21 @@ more detail, please refer to the LICENSE. The license term of io_engine
 driver and ported applications may differ from the mTCP’s.
 
 ## FFMPEG SETUP 
-### Does not Work
-./configure --extra-ldflags='-fgnu89-inline' --extra-cflags='-fgnu89-inline' --extra-ldflags='/home/ndsg/Downloads/mtcp/mtcp/lib/libmtcp.a' \
---extra-ldflags='-L/home/ndsg/Downloads/mtcp/mtcp/lib/libmtcp' --extra-ldflags='-L${RTE_SDK}/${RTE_TARGET}lib/ldflags.txt' \
---extra-cflags='-I/home/ndsg/Downloads/mtcp/mtcp/include' --extra-cflags='-I/home/ndsg/Downloads/mtcp/util/include'
 
-Need to find a way such that the contents of ldflags.txt can be used by the compiler
-Also needs to find a way to compile http_parsing.o, netlib.o and tdate_parse.o
+### Setup
+1. Navigate to mtcp/apps/FFmpeg-release-4.3 using the terminal
+```bash
+cd Downloads/mtcp/apps/FFmpeg-release-4.3
+```
+2. Run chmod to make setup script executable
+```bash
+chmod +x setup.sh
+```
 
-### Use This First
-./configure --extra-ldflags='-fgnu89-inline' --extra-cflags='-fgnu89-inline' --extra-ldflags='/home/ndsg/Downloads/mtcp/mtcp/lib/libmtcp.a' \
---extra-ldflags='-L/home/ndsg/Downloads/mtcp/mtcp/lib/libmtcp' --extra-cflags='-I/home/ndsg/Downloads/mtcp/mtcp/include' \
---extra-cflags='-I/home/ndsg/Downloads/mtcp/util/include' --extra-ldflags='-L${RTE_SDK}/${RTE_TARGET}lib'
+3. Run the setup script
+```bash
+./setup.sh
+```
 
 ### AFTER CONFIGURE
 Replace contents of protocol_list.c, muxer_list.c and demuxer_list.c with the contents of
