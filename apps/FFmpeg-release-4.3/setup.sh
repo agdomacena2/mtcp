@@ -111,4 +111,15 @@
 --extra-ldflags='-L/home/ndsg/Downloads/mtcp/dpdk/x86_64-native-linuxapp-gcc/lib -lrte_pmd_dpaa2_cmdif' \
 --extra-ldflags='-L/home/ndsg/Downloads/mtcp/dpdk/x86_64-native-linuxapp-gcc/lib -lrte_pmd_dpaa2_qdma' \
 --extra-ldflags='-L/home/ndsg/Downloads/mtcp/dpdk/x86_64-native-linuxapp-gcc/lib -lrte_bus_ifpga' \
---extra-ldflags='-L/home/ndsg/Downloads/mtcp/dpdk/x86_64-native-linuxapp-gcc/lib -lrte_pmd_ifpga_rawdev' 
+--extra-ldflags='-L/home/ndsg/Downloads/mtcp/dpdk/x86_64-native-linuxapp-gcc/lib -lrte_pmd_ifpga_rawdev' && \
+
+cp /home/ndsg/Downloads/mtcp/apps/FFmpeg-release-4.3/NewLists/new_protocol_list.c \
+/home/ndsg/Downloads/mtcp/apps/FFmpeg-release-4.3/libavformat/protocol_list.c && \
+
+cp /home/ndsg/Downloads/mtcp/apps/FFmpeg-release-4.3/NewLists/new_muxer_list.c \
+/home/ndsg/Downloads/mtcp/apps/FFmpeg-release-4.3/libavformat/muxer_list.c && \
+
+cp /home/ndsg/Downloads/mtcp/apps/FFmpeg-release-4.3/NewLists/new_demuxer_list.c \
+/home/ndsg/Downloads/mtcp/apps/FFmpeg-release-4.3/libavformat/demuxer_list.c && \
+
+make
