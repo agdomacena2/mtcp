@@ -44,7 +44,7 @@ LDFLAGS    := $(ALLFFLIBS:%=$(LD_PATH)lib%) $(LDFLAGS)
 
 define COMPILE
        $(call $(1)DEP,$(1))
-       $($(1)) $($(1)FLAGS) $($(1)_DEPFLAGS) $($(1)_C) $($(1)_O) $(patsubst $(SRC_PATH)/%,$(SRC_LINK)/%,$<)
+       $($(1)) $($(1)_C) $($(1)_O) $(patsubst $(SRC_PATH)/%,$(SRC_LINK)/%,$<) $($(1)FLAGS) $($(1)_DEPFLAGS)
 endef
 
 COMPILE_C = $(call COMPILE,CC)

@@ -1,5 +1,10 @@
-./configure --extra-ldflags='-fgnu89-inline' \
+./configure --cc='gcc -fgnu89-inline' \
+--extra-cflags='-march=native' \
+--extra-ldflags='-fgnu89-inline' \
 --extra-cflags='-fgnu89-inline' \
+--extra-cflags='-fPIC' \
+--extra-ldflags='-L/home/ndsg/Downloads/mtcp/mtcp/lib' \
+--extra-ldflags='-L/home/ndsg/Downloads/mtcp/mtcp/lib -lnuma' \
 --extra-ldflags='-L/home/ndsg/Downloads/mtcp/mtcp/lib -lmtcp' \
 --extra-cflags='-I/home/ndsg/Downloads/mtcp/mtcp/include' \
 --extra-cflags='-I/home/ndsg/Downloads/mtcp/util/include' \
