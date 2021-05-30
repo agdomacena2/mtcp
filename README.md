@@ -8,23 +8,6 @@ mTCP source code is distributed under the Modified BSD License. For
 more detail, please refer to the LICENSE. The license term of io_engine 
 driver and ported applications may differ from the mTCP’s.
 
-## FFMPEG SETUP 
-
-### Setup
-1. Navigate to mtcp/apps/FFmpeg-release-4.3 using the terminal
-```bash
-cd Downloads/mtcp/apps/FFmpeg-release-4.3
-```
-2. Run chmod to make setup script executable
-```bash
-chmod +x setup.sh
-```
-
-3. Run the setup script and wait for the setup to complete
-```bash
-./setup.sh
-```
-
 ## Prerequisites
 
 We require the following libraries to run mTCP.
@@ -159,6 +142,24 @@ mTCP can be prepared in four ways.
     - Press [30] to remove igb_uio.ko driver
     - Press [33] to remove hugepage mappings
     - Press [34] to quit the tool
+
+
+## FFMPEG SETUP 
+
+### Setup
+1. Navigate to mtcp/apps/FFmpeg-release-4.3 using the terminal
+```bash
+cd Downloads/mtcp/apps/FFmpeg-release-4.3
+```
+2. Run chmod to make setup script executable
+```bash
+chmod +x setup.sh
+```
+
+3. Run the setup script and wait for the setup to complete
+```bash
+./setup.sh
+```
 
 
 ### ***PSIO VERSION***
