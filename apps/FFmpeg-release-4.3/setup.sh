@@ -1,6 +1,6 @@
 ./configure --cc='gcc -fgnu89-inline' \
+--disable-doc \
 --extra-cflags='-march=native' \
---extra-cflags='-fPIC' \
 --extra-cflags='-L/home/ndsg/Downloads/mtcp/mtcp/lib' \
 --extra-cflags='-L/home/ndsg/Downloads/mtcp/mtcp/lib -lnuma' \
 --extra-cflags='-L/home/ndsg/Downloads/mtcp/mtcp/lib -lmtcp' \
