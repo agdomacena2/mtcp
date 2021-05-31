@@ -1,0 +1,1 @@
+cmd_/home/ndsg/Downloads/mtcp/dpdk-iface-kmod/dpdk_iface.ko := ld -r -m elf_x86_64 -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /home/ndsg/Downloads/mtcp/dpdk-iface-kmod/dpdk_iface.ko /home/ndsg/Downloads/mtcp/dpdk-iface-kmod/dpdk_iface.o /home/ndsg/Downloads/mtcp/dpdk-iface-kmod/dpdk_iface.mod.o ;  true
