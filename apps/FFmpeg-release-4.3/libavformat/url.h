@@ -30,6 +30,14 @@
 #include "libavutil/dict.h"
 #include "libavutil/log.h"
 
+#include <mtcp_api.h>
+#include <mtcp_epoll.h>
+#include "cpu.h"
+#include "rss.h"
+#include "http_parsing.h"
+#include "netlib.h"
+#include "debug.h"
+
 #define URL_PROTOCOL_FLAG_NESTED_SCHEME 1 /*< The protocol name can be the first part of a nested protocol scheme */
 #define URL_PROTOCOL_FLAG_NETWORK       2 /*< The protocol uses network */
 
@@ -60,6 +68,7 @@ typedef struct URLProtocol {
      * for those nested protocols.
      */
     int     (*url_open2)(URLContext *h, const char *url, int flags, AVDictionary **options);
+    int     (*url_open3)( mctx_t mctx, URLContext *h, const char *url, int flags);
     int     (*url_accept)(URLContext *s, URLContext **c);
     int     (*url_handshake)(URLContext *c);
 

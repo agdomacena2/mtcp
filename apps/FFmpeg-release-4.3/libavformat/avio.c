@@ -19,6 +19,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
+#include <strings.h>
 #include "libavutil/avstring.h"
 #include "libavutil/dict.h"
 #include "libavutil/opt.h"
@@ -218,12 +219,18 @@ int ffurl_connect(URLContext *uc, AVDictionary **options)
 
     printf("NUM_CORE : %d\n", num_cores);
 
-    err =
-        uc->prot->url_open2 ? uc->prot->url_open2(uc,
-                                                  uc->filename,
-                                                  uc->flags,
-                                                  options) :
-        uc->prot->url_open(uc, uc->filename, uc->flags);
+    if(strcasecmp(uc->prot->name, "TCP") == 0){
+        printf("INSIDE TCP ==\n");
+        uc->prot->url_open3(NULL, uc, uc->filename, uc->flags);
+    }
+    else{
+        err =
+            uc->prot->url_open2 ? uc->prot->url_open2(uc,
+                                                      uc->filename,
+                                                      uc->flags,
+                                                      options) :
+            uc->prot->url_open(uc, uc->filename, uc->flags);
+    }
 
     av_dict_set(options, "protocol_whitelist", NULL, 0);
     av_dict_set(options, "protocol_blacklist", NULL, 0);

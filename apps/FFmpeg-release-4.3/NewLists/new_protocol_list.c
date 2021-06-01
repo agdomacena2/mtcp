@@ -15,7 +15,7 @@ static const URLProtocol * const url_protocols[] = {
     //&ff_mmsh_protocol,
     //&ff_mmst_protocol,
     //&ff_md5_protocol,
-    //&ff_pipe_protocol,
+    &ff_pipe_protocol,
     //&ff_prompeg_protocol,
     //&ff_rtmp_protocol,
     //&ff_rtmpt_protocol,

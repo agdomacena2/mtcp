@@ -2873,16 +2873,16 @@ static int read_thread(void *arg)
     if (show_status)
         av_dump_format(ic, 0, is->filename, 0);
 
-    avformat_alloc_output_context2(&oc, NULL, NULL, out_filename);
-    if(!oc){
-        av_log(NULL, AV_LOG_ERROR, "Could not create output context\n");
-        ret = AVERROR_UNKNOWN;
-        goto fail;
-    }
+    //avformat_alloc_output_context2(&oc, NULL, NULL, out_filename);
+    //if(!oc){
+    //    av_log(NULL, AV_LOG_ERROR, "Could not create output context\n");
+    //    ret = AVERROR_UNKNOWN;
+    //    goto fail;
+    //}
 
-    oformat = oc->oformat;
-    is->oc = oc;
-    is->oformat = oformat;
+    //oformat = oc->oformat;
+    //is->oc = oc;
+    //is->oformat = oformat;
 
     for (i = 0; i < ic->nb_streams; i++) {
         AVStream *st = ic->streams[i];
@@ -2893,18 +2893,18 @@ static int read_thread(void *arg)
             if (avformat_match_stream_specifier(ic, st, wanted_stream_spec[type]) > 0)
                 st_index[type] = i;
 
-        out_st = avformat_new_stream(oc, NULL);
-        if (!out_st) {
-            av_log(NULL, AV_LOG_INFO, "Failed allocating output stream\n");
-            ret = AVERROR_UNKNOWN;
-            goto fail;
-        }
-        ret = avcodec_parameters_copy(out_st->codecpar, st->codecpar);
-        if (ret < 0) {
-            av_log(NULL, AV_LOG_INFO, "Failed to copy codec parameters\n");
-            goto fail;
-        }
-        out_st->codecpar->codec_tag = 0;
+        //out_st = avformat_new_stream(oc, NULL);
+        //if (!out_st) {
+        //    av_log(NULL, AV_LOG_INFO, "Failed allocating output stream\n");
+        //    ret = AVERROR_UNKNOWN;
+        //    goto fail;
+        //}
+        //ret = avcodec_parameters_copy(out_st->codecpar, st->codecpar);
+        //if (ret < 0) {
+        //    av_log(NULL, AV_LOG_INFO, "Failed to copy codec parameters\n");
+        //    goto fail;
+        //}
+        //out_st->codecpar->codec_tag = 0;
     }
     for (i = 0; i < AVMEDIA_TYPE_NB; i++) {
         if (wanted_stream_spec[i] && st_index[i] == -1) {
@@ -2913,15 +2913,15 @@ static int read_thread(void *arg)
         }
     }
 
-    av_dump_format(is->oc, 0, is->out_filename, 1);
+    //av_dump_format(is->oc, 0, is->out_filename, 1);
 
-    if (!(oformat->flags & AVFMT_NOFILE)) {
-        ret = avio_open(&oc->pb, out_filename, AVIO_FLAG_WRITE);
-        if (ret < 0) {
-            av_log(NULL, AV_LOG_INFO, "Could not open output file '%s'\n", out_filename);
-            goto fail;
-        }
-    }
+    //if (!(oformat->flags & AVFMT_NOFILE)) {
+    //    ret = avio_open(&oc->pb, out_filename, AVIO_FLAG_WRITE);
+    //    if (ret < 0) {
+    //        av_log(NULL, AV_LOG_INFO, "Could not open output file '%s'\n", out_filename);
+    //        goto fail;
+    //    }
+    //}
     //ret = avformat_write_header(oc, NULL);
     //if (ret < 0) {
     //    av_log(NULL, AV_LOG_INFO, "Error occurred when opening output file\n");
@@ -3103,15 +3103,15 @@ static int read_thread(void *arg)
                 <= ((double)duration / 1000000);
         if (pkt->stream_index == is->audio_stream && pkt_in_play_range) {
             packet_queue_put(&is->audioq, pkt);
-            pkt1.pts = av_rescale_q_rnd(pkt1.pts, ic->streams[pkt->stream_index]->time_base, oc->streams[pkt->stream_index]->time_base, AV_ROUND_NEAR_INF|AV_ROUND_PASS_MINMAX);
-            pkt1.dts = av_rescale_q_rnd(pkt1.dts, ic->streams[pkt->stream_index]->time_base, oc->streams[pkt->stream_index]->time_base, AV_ROUND_NEAR_INF|AV_ROUND_PASS_MINMAX);
-            pkt1.duration = av_rescale_q(pkt1.duration, ic->streams[pkt->stream_index]->time_base, oc->streams[pkt->stream_index]->time_base);
-            pkt1.pos = -1;
-            ret = av_interleaved_write_frame(oc, pkt);
-            if(ret < 0){
-                av_log(NULL, AV_LOG_INFO, "Error Muxing packet Audio\n");
-                goto fail;
-            }
+            //pkt1.pts = av_rescale_q_rnd(pkt1.pts, ic->streams[pkt->stream_index]->time_base, oc->streams[pkt->stream_index]->time_base, AV_ROUND_NEAR_INF|AV_ROUND_PASS_MINMAX);
+            //pkt1.dts = av_rescale_q_rnd(pkt1.dts, ic->streams[pkt->stream_index]->time_base, oc->streams[pkt->stream_index]->time_base, AV_ROUND_NEAR_INF|AV_ROUND_PASS_MINMAX);
+            //pkt1.duration = av_rescale_q(pkt1.duration, ic->streams[pkt->stream_index]->time_base, oc->streams[pkt->stream_index]->time_base);
+            //pkt1.pos = -1;
+            //ret = av_interleaved_write_frame(oc, pkt);
+            //if(ret < 0){
+            //    av_log(NULL, AV_LOG_INFO, "Error Muxing packet Audio\n");
+            //    goto fail;
+            //}
         } else if (pkt->stream_index == is->video_stream && pkt_in_play_range
                    && !(is->video_st->disposition & AV_DISPOSITION_ATTACHED_PIC)) {
             packet_queue_put(&is->videoq, pkt);
@@ -3119,11 +3119,11 @@ static int read_thread(void *arg)
             //pkt->dts = av_rescale_q_rnd(pkt->dts, ic->streams[pkt->stream_index]->time_base, oc->streams[pkt->stream_index]->time_base, AV_ROUND_NEAR_INF|AV_ROUND_PASS_MINMAX);
             //pkt->duration = av_rescale_q(pkt->duration, ic->streams[pkt->stream_index]->time_base, oc->streams[pkt->stream_index]->time_base);
             //pkt->pos = -1;
-            ret = av_interleaved_write_frame(oc, pkt);
-            if(ret < 0){
-                av_log(NULL, AV_LOG_INFO, "Error Muxing packet\n");
-                goto fail;
-            }
+            //ret = av_interleaved_write_frame(oc, pkt);
+            //if(ret < 0){
+            //    av_log(NULL, AV_LOG_INFO, "Error Muxing packet\n");
+            //    goto fail;
+            //}
         } else if (pkt->stream_index == is->subtitle_stream && pkt_in_play_range) {
             packet_queue_put(&is->subtitleq, pkt);
             //pkt->pts = av_rescale_q_rnd(pkt->pts, ic->streams[pkt->stream_index]->time_base, oc->streams[pkt->stream_index]->time_base, AV_ROUND_NEAR_INF|AV_ROUND_PASS_MINMAX);
@@ -3131,10 +3131,10 @@ static int read_thread(void *arg)
             //pkt->duration = av_rescale_q(pkt->duration, ic->streams[pkt->stream_index]->time_base, oc->streams[pkt->stream_index]->time_base);
             //pkt->pos = -1;
             //ret = av_interleaved_write_frame(oc, pkt);
-            if(ret < 0){
-                av_log(NULL, AV_LOG_INFO, "Error Muxing packet\n");
-                goto fail;
-            }
+            //if(ret < 0){
+            //    av_log(NULL, AV_LOG_INFO, "Error Muxing packet\n");
+            //    goto fail;
+            //}
         } else {
             av_packet_unref(pkt);
         }

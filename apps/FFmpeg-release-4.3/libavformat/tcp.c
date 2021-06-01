@@ -322,7 +322,7 @@ static int tcp_get_window_size(mctx_t mctx, URLContext *h)
 
 const URLProtocol ff_tcp_protocol = {
     .name                = "tcp",
-    .url_open            = tcp_open,
+    .url_open3            = tcp_open,
     .url_accept          = tcp_accept,
     .url_read            = tcp_read,
     .url_write           = tcp_write,
