@@ -32,6 +32,14 @@
 #endif
 #include "url.h"
 
+#include <mtcp_api.h>
+#include <mtcp_epoll.h>
+#include "cpu.h"
+#include "rss.h"
+#include "http_parsing.h"
+#include "netlib.h"
+#include "debug.h"
+
 /** @name Logging context. */
 /*@{*/
 static const char *urlcontext_to_name(void *ptr)
@@ -75,6 +83,7 @@ static int url_alloc_for_protocol(URLContext **puc, const URLProtocol *up,
                                   const char *filename, int flags,
                                   const AVIOInterruptCB *int_cb)
 {
+    printf("FFURLALLOC\n");
     URLContext *uc;
     int err;
 
@@ -151,6 +160,7 @@ static int url_alloc_for_protocol(URLContext **puc, const URLProtocol *up,
         uc->interrupt_callback = *int_cb;
 
     *puc = uc;
+        printf("PROT : %s\n", uc->prot->name);
     return 0;
 fail:
     *puc = NULL;
@@ -169,6 +179,9 @@ int ffurl_connect(URLContext *uc, AVDictionary **options)
     int err;
     AVDictionary *tmp_opts = NULL;
     AVDictionaryEntry *e;
+    struct mtcp_conf mcfg;
+    int process_cpu;
+    int num_cores = GetNumCPUs();
 
     if (!options)
         options = &tmp_opts;
@@ -202,6 +215,8 @@ int ffurl_connect(URLContext *uc, AVDictionary **options)
         return err;
     if ((err = av_dict_set(options, "protocol_blacklist", uc->protocol_blacklist, 0)) < 0)
         return err;
+
+    printf("NUM_CORE : %d\n", num_cores);
 
     err =
         uc->prot->url_open2 ? uc->prot->url_open2(uc,
