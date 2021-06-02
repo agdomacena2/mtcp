@@ -190,6 +190,7 @@ void ff_http_init_auth_state(URLContext *dest, const URLContext *src)
 
 static int http_open_cnx_internal(URLContext *h, AVDictionary **options)
 {
+    printf("HTTP Open CNX Internal\n");
     const char *path, *proxy_path, *lower_proto = "tcp", *local_path;
     char *hashmark;
     char hostname[1024], hoststr[1024], proto[10];
@@ -203,6 +204,7 @@ static int http_open_cnx_internal(URLContext *h, AVDictionary **options)
                  hostname, sizeof(hostname), &port,
                  path1, sizeof(path1), s->location);
     ff_url_join(hoststr, sizeof(hoststr), NULL, NULL, hostname, port, NULL);
+    printf("AFTER JOIN\n");
 
     proxy_path = s->http_proxy ? s->http_proxy : getenv("http_proxy");
     use_proxy  = !ff_http_match_no_proxy(getenv("no_proxy"), hostname) &&
@@ -231,6 +233,7 @@ static int http_open_cnx_internal(URLContext *h, AVDictionary **options)
     }
     local_path = path;
     if (use_proxy) {
+        printf("Proxy\n");
         /* Reassemble the request URL without auth string - we don't
          * want to leak the auth to the proxy. */
         ff_url_join(urlbuf, sizeof(urlbuf), proto, NULL, hostname, port, "%s",
@@ -241,8 +244,10 @@ static int http_open_cnx_internal(URLContext *h, AVDictionary **options)
     }
 
     ff_url_join(buf, sizeof(buf), lower_proto, NULL, hostname, port, NULL);
+    printf("AFTER JOIN2\n");
 
     if (!s->hd) {
+        printf("URLOPEN WHITELIST\n");
         err = ffurl_open_whitelist(&s->hd, buf, AVIO_FLAG_READ_WRITE,
                                    &h->interrupt_callback, options,
                                    h->protocol_whitelist, h->protocol_blacklist, h);
@@ -252,6 +257,7 @@ static int http_open_cnx_internal(URLContext *h, AVDictionary **options)
 
     err = http_connect(h, path, local_path, hoststr,
                        auth, proxyauth, &location_changed);
+    printf("AFTER CONNECT\n");
     if (err < 0)
         return err;
 
@@ -261,6 +267,7 @@ static int http_open_cnx_internal(URLContext *h, AVDictionary **options)
 /* return non zero if error */
 static int http_open_cnx(URLContext *h, AVDictionary **options)
 {
+    printf("HTTP Open CNX\n");
     HTTPAuthType cur_auth_type, cur_proxy_auth_type;
     HTTPContext *s = h->priv_data;
     int location_changed, attempts = 0, redirects = 0;
@@ -407,6 +414,7 @@ int ff_http_averror(int status_code, int default_averror)
 
 static int http_write_reply(URLContext* h, int status_code)
 {
+    printf("HTTP reply\n");
     int ret, body = 0, reply_code, message_len;
     const char *reply_text, *content_type;
     HTTPContext *s = h->priv_data;
@@ -487,6 +495,7 @@ static void handle_http_errors(URLContext *h, int error)
 
 static int http_handshake(URLContext *c)
 {
+    printf("HTTP Handshake\n");
     int ret, err, new_location;
     HTTPContext *ch = c->priv_data;
     URLContext *cl = ch->hd;
@@ -523,6 +532,7 @@ static int http_handshake(URLContext *c)
 
 static int http_listen(URLContext *h, const char *uri, int flags,
                        AVDictionary **options) {
+    printf("HTTP Listen\n");
     HTTPContext *s = h->priv_data;
     int ret;
     char hostname[1024], proto[10];
@@ -557,6 +567,7 @@ static int http_open(URLContext *h, const char *uri, int flags,
 {
     HTTPContext *s = h->priv_data;
     int ret;
+    printf("HTTP open\n");
 
     if( s->seekable == 1 )
         h->is_streamed = 0;
@@ -1218,6 +1229,7 @@ static int http_connect(URLContext *h, const char *path, const char *local_path,
                         const char *hoststr, const char *auth,
                         const char *proxyauth, int *new_location)
 {
+    printf("HTTP Connect\n");
     HTTPContext *s = h->priv_data;
     int post, err;
     AVBPrint request;
@@ -1226,6 +1238,7 @@ static int http_connect(URLContext *h, const char *path, const char *local_path,
     const char *method;
     int send_expect_100 = 0;
 
+    printf("BUFFER INIT\n");
     av_bprint_init_for_buffer(&request, s->buffer, sizeof(s->buffer));
 
     /* send http header */
@@ -1335,6 +1348,8 @@ static int http_connect(URLContext *h, const char *path, const char *local_path,
         err = AVERROR(EINVAL);
         goto done;
     }
+
+    printf("URL WRITE\n");
 
     if ((err = ffurl_write(s->hd, request.str, request.len)) < 0)
         goto done;
@@ -1641,6 +1656,7 @@ static int http_read(URLContext *h, uint8_t *buf, int size)
 /* used only when posting data */
 static int http_write(URLContext *h, const uint8_t *buf, int size)
 {
+    printf("INSIDE HTTP_WRITE\n");
     char temp[11] = "";  /* 32-bit hex + CRLF + nul */
     int ret;
     char crlf[] = "\r\n";

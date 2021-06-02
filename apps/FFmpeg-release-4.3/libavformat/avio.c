@@ -86,6 +86,7 @@ static int url_alloc_for_protocol(URLContext **puc, const URLProtocol *up,
 {
     printf("FFURLALLOC\n");
     URLContext *uc;
+    mctx_t mctx;
     int err;
 
 #if CONFIG_NETWORK
@@ -114,6 +115,10 @@ static int url_alloc_for_protocol(URLContext **puc, const URLProtocol *up,
     uc->flags           = flags;
     uc->is_streamed     = 0; /* default = not streamed */
     uc->max_packet_size = 0; /* default: stream file */
+    printf("PROT : %s\n", uc->prot->name);
+    if(strcmp(uc->prot->name, "tcp") == 0){
+        printf("RAWR\n");
+    }
     if (up->priv_data_size) {
         uc->priv_data = av_mallocz(up->priv_data_size);
         if (!uc->priv_data) {
@@ -161,7 +166,7 @@ static int url_alloc_for_protocol(URLContext **puc, const URLProtocol *up,
         uc->interrupt_callback = *int_cb;
 
     *puc = uc;
-        printf("PROT : %s\n", uc->prot->name);
+
     return 0;
 fail:
     *puc = NULL;
@@ -180,9 +185,6 @@ int ffurl_connect(URLContext *uc, AVDictionary **options)
     int err;
     AVDictionary *tmp_opts = NULL;
     AVDictionaryEntry *e;
-    struct mtcp_conf mcfg;
-    int process_cpu;
-    int num_cores = GetNumCPUs();
 
     if (!options)
         options = &tmp_opts;
@@ -217,9 +219,7 @@ int ffurl_connect(URLContext *uc, AVDictionary **options)
     if ((err = av_dict_set(options, "protocol_blacklist", uc->protocol_blacklist, 0)) < 0)
         return err;
 
-    printf("NUM_CORE : %d\n", num_cores);
-
-    if(strcasecmp(uc->prot->name, "TCP") == 0){
+    if(!strcasecmp(uc->prot->name, "TCP")){
         printf("INSIDE TCP ==\n");
         uc->prot->url_open3(NULL, uc, uc->filename, uc->flags);
     }
@@ -389,6 +389,7 @@ static inline int retry_transfer_wrapper(URLContext *h, uint8_t *buf,
     int ret, len;
     int fast_retries = 5;
     int64_t wait_since = 0;
+    printf("TRANSFER WRAPPER\n");
 
     len = 0;
     while (len < size_min) {

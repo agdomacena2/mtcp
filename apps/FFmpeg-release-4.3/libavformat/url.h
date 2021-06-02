@@ -47,6 +47,7 @@ typedef struct URLContext {
     const AVClass *av_class;    /**< information for av_log(). Set by url_open(). */
     const struct URLProtocol *prot;
     void *priv_data;
+    mctx_t mctx;
     char *filename;             /**< specified URL */
     int flags;
     int max_packet_size;        /**< if non zero, the stream is packetized with this max packet size */

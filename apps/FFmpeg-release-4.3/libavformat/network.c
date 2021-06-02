@@ -193,13 +193,28 @@ int ff_socket(mctx_t mctx, int af, int type, int proto)
 {
 
     int fd;
+    printf("PROTO: %d\n", proto);
+    if(mctx != NULL){
+        printf("PROTO2: %d\n", proto);
+    }
 
 #ifdef SOCK_CLOEXEC
-    fd = mtcp_socket(mctx, af, type | SOCK_CLOEXEC, proto);
+    if(mctx != NULL){
+        fd = mtcp_socket(mctx, af, type | SOCK_CLOEXEC, proto);
+    }
+    else{
+        fd = socket(af, type | SOCK_CLOEXEC, proto);
+    }
+    
     if (fd == -1 && errno == EINVAL)
 #endif
     {
-        fd = mtcp_socket(mctx, af, type, proto);
+    if(mctx != NULL){
+        fd = mtcp_socket(mctx, af, type | SOCK_CLOEXEC, proto);
+    }
+    else{
+        fd = socket(af, type, proto);
+    }
 #if HAVE_FCNTL
         if (fd != -1) {
             if (fcntl(fd, F_SETFD, FD_CLOEXEC) == -1)
@@ -209,8 +224,15 @@ int ff_socket(mctx_t mctx, int af, int type, int proto)
     }
 #ifdef SO_NOSIGPIPE
     if (fd != -1) {
-        if (mtcp_setsockopt(mctx, fd, SOL_SOCKET, SO_NOSIGPIPE, &(int){1}, sizeof(int))) {
-             av_log(NULL, AV_LOG_WARNING, "setsockopt(SO_NOSIGPIPE) failed\n");
+        if(mctx != NULL){
+           if (mtcp_setsockopt(mctx, fd, SOL_SOCKET, SO_NOSIGPIPE, &(int){1}, sizeof(int))) {
+                 av_log(NULL, AV_LOG_WARNING, "setsockopt(SO_NOSIGPIPE) failed\n");
+            }
+        }
+        else{
+            if (mtcp_setsockopt(mctx, fd, SOL_SOCKET, SO_NOSIGPIPE, &(int){1}, sizeof(int))) {
+                 av_log(NULL, AV_LOG_WARNING, "setsockopt(SO_NOSIGPIPE) failed\n");
+            }
         }
     }
 #endif
@@ -222,17 +244,33 @@ int ff_listen(mctx_t mctx, int fd, const struct sockaddr *addr,
 {
     int ret;
     int reuse = 1;
-    if (mtcp_setsockopt(mctx, fd, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(reuse))) {
-        av_log(NULL, AV_LOG_WARNING, "setsockopt(SO_REUSEADDR) failed\n");
-    }
-    ret = mtcp_bind(mctx, fd, addr, addrlen);
-    if (ret)
-        return ff_neterrno();
+    if(mctx != NULL){
+        if (mtcp_setsockopt(mctx, fd, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(reuse))) {
+            av_log(NULL, AV_LOG_WARNING, "setsockopt(SO_REUSEADDR) failed\n");
+        }
+            ret = mtcp_bind(mctx, fd, addr, addrlen);
+        if (ret)
+            return ff_neterrno();
 
-    ret = mtcp_listen(mctx, fd, 1);
-    if (ret)
-        return ff_neterrno();
-    return ret;
+       ret = mtcp_listen(mctx, fd, 1);
+       if (ret)
+           return ff_neterrno();
+       return ret;
+      }
+    else{
+        if (setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(reuse))) {
+            av_log(NULL, AV_LOG_WARNING, "setsockopt(SO_REUSEADDR) failed\n");
+        }
+            ret = bind(fd, addr, addrlen);
+        if (ret)
+            return ff_neterrno();
+
+       ret = listen(fd, 1);
+       if (ret)
+           return ff_neterrno();
+       return ret;
+    }
+
 }
 
 int ff_accept(mctx_t mctx, int fd, int timeout, URLContext *h)
@@ -243,14 +281,25 @@ int ff_accept(mctx_t mctx, int fd, int timeout, URLContext *h)
     ret = ff_poll_interrupt(&lp, 1, timeout, &h->interrupt_callback);
     if (ret < 0)
         return ret;
+    if(mctx != NULL){
+            ret = mtcp_accept(mctx, fd, NULL, NULL);
+        if (ret < 0)
+            return ff_neterrno();
+        if (ff_socket_nonblock(ret, 1) < 0)
+            av_log(h, AV_LOG_DEBUG, "ff_socket_nonblock failed\n");
 
-    ret = mtcp_accept(mctx, fd, NULL, NULL);
-    if (ret < 0)
-        return ff_neterrno();
-    if (ff_socket_nonblock(ret, 1) < 0)
-        av_log(h, AV_LOG_DEBUG, "ff_socket_nonblock failed\n");
+       return ret;
+    }
+    else{
+            ret = accept(fd, NULL, NULL);
+        if (ret < 0)
+            return ff_neterrno();
+        if (ff_socket_nonblock(ret, 1) < 0)
+            av_log(h, AV_LOG_DEBUG, "ff_socket_nonblock failed\n");
+        return ret;
+    }
 
-    return ret;
+
 }
 
 int ff_listen_bind(mctx_t mctx, int fd, const struct sockaddr *addr,
@@ -261,8 +310,14 @@ int ff_listen_bind(mctx_t mctx, int fd, const struct sockaddr *addr,
         return ret;
     if ((ret = ff_accept(mctx, fd, timeout, h)) < 0)
         return ret;
-    mtcp_close(mctx, fd);
-    return ret;
+    if(mctx != NULL){
+        mtcp_close(mctx, fd);
+        return ret;
+    }
+    else{
+        closesocket(fd);
+        return ret;
+    }
 }
 
 int ff_listen_connect(mctx_t mctx, int fd, const struct sockaddr *addr,
@@ -275,37 +330,71 @@ int ff_listen_connect(mctx_t mctx, int fd, const struct sockaddr *addr,
 
     if (ff_socket_nonblock(fd, 1) < 0)
         av_log(h, AV_LOG_DEBUG, "ff_socket_nonblock failed\n");
-
-    while ((ret = mtcp_connect(mctx, fd, addr, addrlen))) {
-        ret = ff_neterrno();
-        switch (ret) {
-        case AVERROR(EINTR):
-            if (ff_check_interrupt(&h->interrupt_callback))
-                return AVERROR_EXIT;
-            continue;
-        case AVERROR(EINPROGRESS):
-        case AVERROR(EAGAIN):
-            ret = ff_poll_interrupt(&p, 1, timeout, &h->interrupt_callback);
-            if (ret < 0)
-                return ret;
-            optlen = sizeof(ret);
-            if (mtcp_getsockopt (mctx, fd, SOL_SOCKET, SO_ERROR, &ret, &optlen))
+    if(mctx != NULL){
+        while ((ret = mtcp_connect(mctx, fd, addr, addrlen))) {
+            ret = ff_neterrno();
+            switch (ret) {
+            case AVERROR(EINTR):
+                if (ff_check_interrupt(&h->interrupt_callback))
+                    return AVERROR_EXIT;
+                continue;
+            case AVERROR(EINPROGRESS):
+            case AVERROR(EAGAIN):
+                ret = ff_poll_interrupt(&p, 1, timeout, &h->interrupt_callback);
+                if (ret < 0)
+                    return ret;
+                optlen = sizeof(ret);
+                if (mtcp_getsockopt (mctx, fd, SOL_SOCKET, SO_ERROR, &ret, &optlen))
                 ret = AVUNERROR(ff_neterrno());
-            if (ret != 0) {
-                char errbuf[100];
-                ret = AVERROR(ret);
-                av_strerror(ret, errbuf, sizeof(errbuf));
-                if (will_try_next)
-                    av_log(h, AV_LOG_WARNING,
-                           "Connection to %s failed (%s), trying next address\n",
-                           h->filename, errbuf);
-                else
-                    av_log(h, AV_LOG_ERROR, "Connection to %s failed: %s\n",
-                           h->filename, errbuf);
-            }
-        default:
-            return ret;
-        }
+            	if (ret != 0) {
+            	    char errbuf[100];
+            	    ret = AVERROR(ret);
+            	    av_strerror(ret, errbuf, sizeof(errbuf));
+            	    if (will_try_next)
+            	        av_log(h, AV_LOG_WARNING,
+            	               "Connection to %s failed (%s), trying next address\n",
+            	               h->filename, errbuf);
+            	    else
+            	        av_log(h, AV_LOG_ERROR, "Connection to %s failed: %s\n",
+            	               h->filename, errbuf);
+            	}
+        	default:
+        	    return ret;
+        	}
+    	}
+    }
+    else{
+    	while ((ret = connect(fd, addr, addrlen))) {
+            ret = ff_neterrno();
+            switch (ret) {
+            case AVERROR(EINTR):
+                if (ff_check_interrupt(&h->interrupt_callback))
+                    return AVERROR_EXIT;
+                continue;
+            case AVERROR(EINPROGRESS):
+            case AVERROR(EAGAIN):
+                ret = ff_poll_interrupt(&p, 1, timeout, &h->interrupt_callback);
+                if (ret < 0)
+                    return ret;
+                optlen = sizeof(ret);
+                if (getsockopt (fd, SOL_SOCKET, SO_ERROR, &ret, &optlen))
+                ret = AVUNERROR(ff_neterrno());
+            	if (ret != 0) {
+            	    char errbuf[100];
+            	    ret = AVERROR(ret);
+            	    av_strerror(ret, errbuf, sizeof(errbuf));
+            	    if (will_try_next)
+            	        av_log(h, AV_LOG_WARNING,
+            	               "Connection to %s failed (%s), trying next address\n",
+            	               h->filename, errbuf);
+            	    else
+            	        av_log(h, AV_LOG_ERROR, "Connection to %s failed: %s\n",
+            	               h->filename, errbuf);
+            	}
+        	default:
+        	    return ret;
+        	}
+    	}
     }
     return ret;
 }
@@ -384,25 +473,49 @@ static int start_connect_attempt(mctx_t mctx, struct ConnectionAttempt *attempt,
     if (customize_fd)
         customize_fd(customize_ctx, attempt->fd);
 
-    while ((ret = mtcp_connect(mctx, attempt->fd, ai->ai_addr, ai->ai_addrlen))) {
-        ret = ff_neterrno();
-        switch (ret) {
-        case AVERROR(EINTR):
-            if (ff_check_interrupt(&h->interrupt_callback)) {
-                mtcp_close(mctx,attempt->fd);
-                attempt->fd = -1;
-                return AVERROR_EXIT;
-            }
-            continue;
-        case AVERROR(EINPROGRESS):
-        case AVERROR(EAGAIN):
-            return 0;
-        default:
-            mtcp_close(mctx, attempt->fd);
-            attempt->fd = -1;
-            return ret;
-        }
+    if (mctx != NULL){
+    	while ((ret = mtcp_connect(mctx, attempt->fd, ai->ai_addr, ai->ai_addrlen))) {
+    	    ret = ff_neterrno();
+    	    switch (ret) {
+    	    case AVERROR(EINTR):
+    	        if (ff_check_interrupt(&h->interrupt_callback)) {
+    	            mtcp_close(mctx,attempt->fd);
+    	            attempt->fd = -1;
+    	            return AVERROR_EXIT;
+    	        }
+    	        continue;
+    	    case AVERROR(EINPROGRESS):
+    	    case AVERROR(EAGAIN):
+    	        return 0;
+    	    default:
+    	        mtcp_close(mctx, attempt->fd);
+    	        attempt->fd = -1;
+    	        return ret;
+    	    }
+    	}
     }
+    else{
+    	while ((ret = connect(attempt->fd, ai->ai_addr, ai->ai_addrlen))) {
+    	    ret = ff_neterrno();
+    	    switch (ret) {
+    	    case AVERROR(EINTR):
+    	        if (ff_check_interrupt(&h->interrupt_callback)) {
+    	            closesocket(attempt->fd);
+    	            attempt->fd = -1;
+    	            return AVERROR_EXIT;
+    	        }
+    	        continue;
+    	    case AVERROR(EINPROGRESS):
+    	    case AVERROR(EAGAIN):
+    	        return 0;
+    	    default:
+    	        closesocket(attempt->fd);
+    	        attempt->fd = -1;
+    	        return ret;
+    	    }
+    	}
+    }
+
     return 1;
 }
 
@@ -450,8 +563,15 @@ int ff_connect_parallel(mctx_t mctx, struct addrinfo *addrs, int timeout_ms_per_
                 continue;
             }
             if (last_err > 0) {
-                for (i = 0; i < nb_attempts; i++)
-                    mtcp_close(mctx, attempts[i].fd);
+                for (i = 0; i < nb_attempts; i++){
+                	if(mctx != NULL){
+                		mtcp_close(mctx, attempts[i].fd);
+                	}
+                	else{
+                		closesocket(attempts[i].fd);
+                	}
+                    
+                }
                 *fd = attempts[nb_attempts].fd;
                 return 0;
             }
@@ -480,24 +600,47 @@ int ff_connect_parallel(mctx_t mctx, struct addrinfo *addrs, int timeout_ms_per_
             if (pfd[i].revents) {
                 // Some sort of action for this socket, check its status (either
                 // a successful connection or an error).
-                optlen = sizeof(last_err);
-                if (mtcp_getsockopt(mctx, attempts[i].fd, SOL_SOCKET, SO_ERROR, &last_err, &optlen))
-                    last_err = ff_neterrno();
-                else if (last_err != 0)
-                    last_err = AVERROR(last_err);
-                if (last_err == 0) {
-                    // Everything is ok, we seem to have a successful
-                    // connection. Close other sockets and return this one.
-                    for (j = 0; j < nb_attempts; j++)
-                        if (j != i)
-                            mtcp_close(mctx, attempts[j].fd);
-                    *fd = attempts[i].fd;
-                    getnameinfo(attempts[i].addr->ai_addr, attempts[i].addr->ai_addrlen,
-                                hostbuf, sizeof(hostbuf), portbuf, sizeof(portbuf),
-                                NI_NUMERICHOST | NI_NUMERICSERV);
-                    av_log(h, AV_LOG_VERBOSE, "Successfully connected to %s port %s\n",
-                                              hostbuf, portbuf);
-                    return 0;
+                if(mctx != NULL){
+                	optlen = sizeof(last_err);
+                	if (mtcp_getsockopt(mctx, attempts[i].fd, SOL_SOCKET, SO_ERROR, &last_err, &optlen))
+                	    last_err = ff_neterrno();
+                	else if (last_err != 0)
+                	    last_err = AVERROR(last_err);
+                	if (last_err == 0) {
+                	    // Everything is ok, we seem to have a successful
+                	    // connection. Close other sockets and return this one.
+                	    for (j = 0; j < nb_attempts; j++)
+                	        if (j != i)
+                	            mtcp_close(mctx, attempts[j].fd);
+                	    *fd = attempts[i].fd;
+                	    getnameinfo(attempts[i].addr->ai_addr, attempts[i].addr->ai_addrlen,
+                	                hostbuf, sizeof(hostbuf), portbuf, sizeof(portbuf),
+                	                NI_NUMERICHOST | NI_NUMERICSERV);
+                	    av_log(h, AV_LOG_VERBOSE, "Successfully connected to %s port %s\n",
+                	                              hostbuf, portbuf);
+                	    return 0;
+                	}
+                }
+                else{
+                	optlen = sizeof(last_err);
+                	if (getsockopt(attempts[i].fd, SOL_SOCKET, SO_ERROR, &last_err, &optlen))
+                	    last_err = ff_neterrno();
+                	else if (last_err != 0)
+                	    last_err = AVERROR(last_err);
+                	if (last_err == 0) {
+                	    // Everything is ok, we seem to have a successful
+                	    // connection. Close other sockets and return this one.
+                	    for (j = 0; j < nb_attempts; j++)
+                	        if (j != i)
+                	            closesocket(attempts[j].fd);
+                	    *fd = attempts[i].fd;
+                	    getnameinfo(attempts[i].addr->ai_addr, attempts[i].addr->ai_addrlen,
+                	                hostbuf, sizeof(hostbuf), portbuf, sizeof(portbuf),
+                	                NI_NUMERICHOST | NI_NUMERICSERV);
+                	    av_log(h, AV_LOG_VERBOSE, "Successfully connected to %s port %s\n",
+                	                              hostbuf, portbuf);
+                	   	return 0;
+                	}
                 }
             }
             if (attempts[i].deadline_us < av_gettime_relative() && !last_err)
@@ -513,7 +656,12 @@ int ff_connect_parallel(mctx_t mctx, struct addrinfo *addrs, int timeout_ms_per_
             av_strerror(last_err, errbuf, sizeof(errbuf));
             av_log(h, AV_LOG_VERBOSE, "Connection attempt to %s port %s "
                                       "failed: %s\n", hostbuf, portbuf, errbuf);
-            mtcp_close(mctx, attempts[i].fd);
+            if(mctx != NULL){
+            	mtcp_close(mctx, attempts[i].fd);
+            }
+            else{
+            	closesocket(attempts[i].fd);
+            }
             memmove(&attempts[i], &attempts[i + 1],
                     (nb_attempts - i - 1) * sizeof(*attempts));
             memmove(&pfd[i], &pfd[i + 1],
@@ -522,8 +670,15 @@ int ff_connect_parallel(mctx_t mctx, struct addrinfo *addrs, int timeout_ms_per_
             nb_attempts--;
         }
     }
-    for (i = 0; i < nb_attempts; i++)
-        mtcp_close(mctx, attempts[i].fd);
+    for (i = 0; i < nb_attempts; i++){
+    	if(mctx != NULL){
+    		mtcp_close(mctx, attempts[i].fd);
+    	}
+    	else{
+    		closesocket(attempts[i].fd);
+    	}
+        
+    }
     if (last_err >= 0)
         last_err = AVERROR(ECONNREFUSED);
     if (last_err != AVERROR_EXIT) {

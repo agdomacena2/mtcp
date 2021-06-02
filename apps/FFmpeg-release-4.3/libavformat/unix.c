@@ -69,20 +69,20 @@ static int unix_open(URLContext *h, const char *filename, int flags)
     s->addr.sun_family = AF_UNIX;
     av_strlcpy(s->addr.sun_path, filename, sizeof(s->addr.sun_path));
 
-    if ((fd = ff_socket(AF_UNIX, s->type, 0)) < 0)
+    if ((fd = ff_socket(NULL, AF_UNIX, s->type, 0)) < 0)
         return ff_neterrno();
 
     if (s->timeout < 0 && h->rw_timeout)
         s->timeout = h->rw_timeout / 1000;
 
     if (s->listen) {
-        ret = ff_listen_bind(fd, (struct sockaddr *)&s->addr,
+        ret = ff_listen_bind(NULL, fd, (struct sockaddr *)&s->addr,
                              sizeof(s->addr), s->timeout, h);
         if (ret < 0)
             goto fail;
         fd = ret;
     } else {
-        ret = ff_listen_connect(fd, (struct sockaddr *)&s->addr,
+        ret = ff_listen_connect(NULL, fd, (struct sockaddr *)&s->addr,
                                 sizeof(s->addr), s->timeout, h, 0);
         if (ret < 0)
             goto fail;

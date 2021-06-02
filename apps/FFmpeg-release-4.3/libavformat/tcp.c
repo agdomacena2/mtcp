@@ -166,6 +166,9 @@ static int tcp_open(mctx_t mctx, URLContext *h, const char *uri, int flags)
     }
 
     cur_ai = ai;
+    printf("Destination port: %d\n", port);
+    printf("HOSTNAME: %s\n", hostname);
+    printf("PROTO: %s\n", proto);
 
 #if HAVE_STRUCT_SOCKADDR_IN6
     // workaround for IOS9 getaddrinfo in IPv6 only network use hardcode IPv4 address can not resolve port number.
@@ -222,7 +225,7 @@ static int tcp_open(mctx_t mctx, URLContext *h, const char *uri, int flags)
     return ret;
 }
 
-static int tcp_accept(mctx_t mctx, URLContext *s, URLContext **c)
+static int tcp_accept(URLContext *s, URLContext **c)
 {
     TCPContext *sc = s->priv_data;
     TCPContext *cc;
@@ -231,7 +234,7 @@ static int tcp_accept(mctx_t mctx, URLContext *s, URLContext **c)
     if ((ret = ffurl_alloc(c, s->filename, s->flags, &s->interrupt_callback)) < 0)
         return ret;
     cc = (*c)->priv_data;
-    ret = ff_accept(mctx, sc->fd, sc->listen_timeout, s);
+    ret = ff_accept(s->mctx, sc->fd, sc->listen_timeout, s);
     if (ret < 0) {
         ffurl_closep(c);
         return ret;
@@ -240,7 +243,7 @@ static int tcp_accept(mctx_t mctx, URLContext *s, URLContext **c)
     return 0;
 }
 
-static int tcp_read(mctx_t mctx, URLContext *h, uint8_t *buf, int size)
+static int tcp_read(URLContext *h, uint8_t *buf, int size)
 {
     TCPContext *s = h->priv_data;
     int ret;
@@ -250,29 +253,42 @@ static int tcp_read(mctx_t mctx, URLContext *h, uint8_t *buf, int size)
         if (ret)
             return ret;
     }
-    ret = mtcp_recv(mctx, s->fd, buf, size, 0);
+    if(h->mctx != NULL){
+        ret = mtcp_recv(h->mctx, s->fd, buf, size, 0);
+    }
+    else{
+        ret = recv(s->fd, buf, size, 0);
+    }
+    
     if (ret == 0)
         return AVERROR_EOF;
     return ret < 0 ? ff_neterrno() : ret;
 }
 
-static int tcp_write(mctx_t mctx, URLContext *h, const uint8_t *buf, int size)
+static int tcp_write(URLContext *h, const uint8_t *buf, int size)
 {
     TCPContext *s = h->priv_data;
     int ret;
-
     if (!(h->flags & AVIO_FLAG_NONBLOCK)) {
         ret = ff_network_wait_fd_timeout(s->fd, 1, h->rw_timeout, &h->interrupt_callback);
         if (ret)
             return ret;
     }
-    ret = mtcp_write(mctx, s->fd, buf, size);
+    if(h->mctx != NULL){
+        ret = mtcp_write(h->mctx, s->fd, buf, size);
+    }
+    else{
+        printf("WRITE\n");
+        //ret = write(s->fd, buf, size);
+        ret = send(s->fd, buf, size, MSG_NOSIGNAL);
+        printf("RET = %d\n", ret);
+    }
     return ret < 0 ? ff_neterrno() : ret;
 }
 
-static int tcp_shutdown(mctx_t mctx, URLContext *h, int flags)
+static int tcp_shutdown(URLContext *h, int flags)
 {
-    /*TCPContext *s = h->priv_data;
+    TCPContext *s = h->priv_data;
     int how;
 
     if (flags & AVIO_FLAG_WRITE && flags & AVIO_FLAG_READ) {
@@ -281,16 +297,20 @@ static int tcp_shutdown(mctx_t mctx, URLContext *h, int flags)
         how = SHUT_WR;
     } else {
         how = SHUT_RD;
-    }*/
+    }
 
-    //return tcp_close(mctx, *h);
-    return 0;
+    return shutdown(s->fd, how);
 }
 
-static int tcp_close(mctx_t mctx, URLContext *h)
+static int tcp_close(URLContext *h)
 {
     TCPContext *s = h->priv_data;
-    mtcp_close(mctx, s->fd);
+    if(h->mctx != NULL){
+        mtcp_close(h->mctx, s->fd);
+    }
+    else{
+        closesocket(s->fd);
+    }
     return 0;
 }
 
@@ -300,7 +320,7 @@ static int tcp_get_file_handle(URLContext *h)
     return s->fd;
 }
 
-static int tcp_get_window_size(mctx_t mctx, URLContext *h)
+static int tcp_get_window_size(URLContext *h)
 {
     TCPContext *s = h->priv_data;
     int avail;
@@ -314,9 +334,17 @@ static int tcp_get_window_size(mctx_t mctx, URLContext *h)
     }
 #endif
 
-    if (mtcp_getsockopt(mctx, s->fd, SOL_SOCKET, SO_RCVBUF, &avail, &avail_len)) {
+    if(h->mctx != NULL){
+        if (mtcp_getsockopt(h->mctx, s->fd, SOL_SOCKET, SO_RCVBUF, &avail, &avail_len)) {
         return ff_neterrno();
+        }
     }
+    else{
+        if (getsockopt(s->fd, SOL_SOCKET, SO_RCVBUF, &avail, &avail_len)) {
+        return ff_neterrno();
+        }
+    }
+
     return avail;
 }
 
