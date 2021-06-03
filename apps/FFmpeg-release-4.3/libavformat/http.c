@@ -258,8 +258,10 @@ static int http_open_cnx_internal(URLContext *h, AVDictionary **options)
     err = http_connect(h, path, local_path, hoststr,
                        auth, proxyauth, &location_changed);
     printf("AFTER CONNECT\n");
-    if (err < 0)
+    if (err < 0){
+        printf("ERR: %d\n", err);
         return err;
+    }
 
     return location_changed;
 }
@@ -606,6 +608,7 @@ static int http_open(URLContext *h, const char *uri, int flags,
 
 static int http_accept(URLContext *s, URLContext **c)
 {
+    printf("HTTP ACCEPT\n");
     int ret;
     HTTPContext *sc = s->priv_data;
     HTTPContext *cc;
@@ -1351,8 +1354,10 @@ static int http_connect(URLContext *h, const char *path, const char *local_path,
 
     printf("URL WRITE\n");
 
-    if ((err = ffurl_write(s->hd, request.str, request.len)) < 0)
+    if ((err = ffurl_write(s->hd, request.str, request.len)) < 0){
+        printf("ERR URL WRITE\n");
         goto done;
+    }
 
     if (s->post_data)
         if ((err = ffurl_write(s->hd, s->post_data, s->post_datalen)) < 0)
@@ -1382,8 +1387,10 @@ static int http_connect(URLContext *h, const char *path, const char *local_path,
 
     /* wait for header */
     err = http_read_header(h, new_location);
-    if (err < 0)
+    if (err < 0){
+        printf("ERRREAD %d\n", err);
         goto done;
+    }
 
     if (*new_location)
         s->off = off;

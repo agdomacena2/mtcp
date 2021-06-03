@@ -69,7 +69,6 @@ typedef struct URLProtocol {
      * for those nested protocols.
      */
     int     (*url_open2)(URLContext *h, const char *url, int flags, AVDictionary **options);
-    int     (*url_open3)( mctx_t mctx, URLContext *h, const char *url, int flags);
     int     (*url_accept)(URLContext *s, URLContext **c);
     int     (*url_handshake)(URLContext *c);
 

@@ -193,9 +193,9 @@ int ff_socket(mctx_t mctx, int af, int type, int proto)
 {
 
     int fd;
-    printf("PROTO: %d\n", proto);
     if(mctx != NULL){
         printf("PROTO2: %d\n", proto);
+        printf("AF: %d\n", af);
     }
 
 #ifdef SOCK_CLOEXEC
@@ -210,7 +210,8 @@ int ff_socket(mctx_t mctx, int af, int type, int proto)
 #endif
     {
     if(mctx != NULL){
-        fd = mtcp_socket(mctx, af, type | SOCK_CLOEXEC, proto);
+        fd = mtcp_socket(mctx, af, type, proto);
+        printf("FD == %d\n", fd);
     }
     else{
         fd = socket(af, type, proto);
@@ -230,7 +231,7 @@ int ff_socket(mctx_t mctx, int af, int type, int proto)
             }
         }
         else{
-            if (mtcp_setsockopt(mctx, fd, SOL_SOCKET, SO_NOSIGPIPE, &(int){1}, sizeof(int))) {
+            if (setsockopt(fd, SOL_SOCKET, SO_NOSIGPIPE, &(int){1}, sizeof(int))) {
                  av_log(NULL, AV_LOG_WARNING, "setsockopt(SO_NOSIGPIPE) failed\n");
             }
         }
@@ -462,18 +463,25 @@ static int start_connect_attempt(mctx_t mctx, struct ConnectionAttempt *attempt,
 
     *ptr = ai->ai_next;
 
+    printf("CONNECT ATTAMPT\n");
     attempt->fd = ff_socket(mctx, ai->ai_family, ai->ai_socktype, ai->ai_protocol);
-    if (attempt->fd < 0)
+    if (attempt->fd < 0){
+        printf("CONNECT ATTEMP ERROR\n");
         return ff_neterrno();
+    }
+    printf("attempt->fd == %d\n", attempt->fd);
     attempt->deadline_us = av_gettime_relative() + timeout_ms * 1000;
     attempt->addr = ai;
+    printf("A\n");
 
     ff_socket_nonblock(attempt->fd, 1);
+    printf("B\n");
 
     if (customize_fd)
         customize_fd(customize_ctx, attempt->fd);
 
     if (mctx != NULL){
+        printf("MTCP\n");
     	while ((ret = mtcp_connect(mctx, attempt->fd, ai->ai_addr, ai->ai_addrlen))) {
     	    ret = ff_neterrno();
     	    switch (ret) {
@@ -495,6 +503,7 @@ static int start_connect_attempt(mctx_t mctx, struct ConnectionAttempt *attempt,
     	}
     }
     else{
+        printf("NON MTCP\n");
     	while ((ret = connect(attempt->fd, ai->ai_addr, ai->ai_addrlen))) {
     	    ret = ff_neterrno();
     	    switch (ret) {
@@ -544,6 +553,10 @@ int ff_connect_parallel(mctx_t mctx, struct addrinfo *addrs, int timeout_ms_per_
     // an updated pointer.
     interleave_addrinfo(addrs);
     print_address_list(h, addrs, "Interleaved list of addresses");
+
+    if(mctx == NULL){
+        printf("MCTX IS NULL\n");
+    }
 
     while (nb_attempts > 0 || addrs) {
         // Start a new connection attempt, if possible.

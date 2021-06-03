@@ -79,6 +79,19 @@ static const AVClass tcp_class = {
     .version    = LIBAVUTIL_VERSION_INT,
 };
 
+static mctx_t CreateContext(int core){
+    mctx_t mctx;
+
+    mctx = mtcp_create_context(core);
+    if (!mctx) {
+        TRACE_ERROR("Failed to create mtcp context.\n");
+        free(mctx);
+        return NULL;
+    }
+
+    return mctx;
+}
+
 static void customize_fd(void *ctx, int fd)
 {
     TCPContext *s = ctx;
@@ -109,16 +122,26 @@ static void customize_fd(void *ctx, int fd)
 }
 
 /* return non zero if error */
-static int tcp_open(mctx_t mctx, URLContext *h, const char *uri, int flags)
+static int tcp_open(URLContext *h, const char *uri, int flags)
 {
     struct addrinfo hints = { 0 }, *ai, *cur_ai;
     int port, fd = -1;
     TCPContext *s = h->priv_data;
     const char *p;
     char buf[256];
-    int ret;
+    int ret, ret2;
     char hostname[1024],proto[1024],path[1024];
     char portstr[10];
+    struct mtcp_conf mcfg;
+    const char *conf_file = "/home/ndsg/Downloads/mtcp/apps/FFmpeg-release-4.3/ffplay.conf";
+    in_addr_t daddr;
+    in_port_t dport;
+    in_addr_t saddr;
+    int num_cores;
+    int core_limit;
+    int concurrency;
+    int max_fds;
+    mctx_t mctx;
     s->open_timeout = 5000000;
 
     av_url_split(proto, sizeof(proto), NULL, 0, hostname, sizeof(hostname),
@@ -170,6 +193,38 @@ static int tcp_open(mctx_t mctx, URLContext *h, const char *uri, int flags)
     printf("HOSTNAME: %s\n", hostname);
     printf("PROTO: %s\n", proto);
 
+    daddr = inet_addr(hostname);
+    dport = htons(port);
+    saddr = INADDR_ANY;
+
+    num_cores = GetNumCPUs();
+    core_limit = num_cores;
+    concurrency = 100;
+
+    max_fds = concurrency * 3;
+
+    mtcp_getconf(&mcfg);
+    mcfg.num_cores = core_limit;
+    mtcp_setconf(&mcfg);
+
+    ret2 = mtcp_init(conf_file);
+    if (ret2) {
+        TRACE_ERROR("Failed to initialize mtcp.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    mtcp_getconf(&mcfg);
+    mcfg.max_concurrency = max_fds;
+    mcfg.max_num_buffers = max_fds;
+    mtcp_setconf(&mcfg);
+
+    mtcp_core_affinitize(1);
+    h->mctx = CreateContext(1);
+    if (!h->mctx) {
+        printf("MCTX NULL\n");
+    }
+    mtcp_init_rss(h->mctx, saddr, 1, daddr, dport);
+
 #if HAVE_STRUCT_SOCKADDR_IN6
     // workaround for IOS9 getaddrinfo in IPv6 only network use hardcode IPv4 address can not resolve port number.
     if (cur_ai->ai_family == AF_INET6){
@@ -182,7 +237,7 @@ static int tcp_open(mctx_t mctx, URLContext *h, const char *uri, int flags)
 
     if (s->listen > 0) {
         while (cur_ai && fd < 0) {
-            fd = ff_socket(mctx, cur_ai->ai_family,
+            fd = ff_socket(h->mctx, cur_ai->ai_family,
                            cur_ai->ai_socktype,
                            cur_ai->ai_protocol);
             if (fd < 0) {
@@ -197,17 +252,18 @@ static int tcp_open(mctx_t mctx, URLContext *h, const char *uri, int flags)
 
     if (s->listen == 2) {
         // multi-client
-        if ((ret = ff_listen(mctx, fd, cur_ai->ai_addr, cur_ai->ai_addrlen)) < 0)
+        if ((ret = ff_listen(h->mctx, fd, cur_ai->ai_addr, cur_ai->ai_addrlen)) < 0)
             goto fail1;
     } else if (s->listen == 1) {
         // single client
-        if ((ret = ff_listen_bind(mctx, fd, cur_ai->ai_addr, cur_ai->ai_addrlen,
+        if ((ret = ff_listen_bind(h->mctx, fd, cur_ai->ai_addr, cur_ai->ai_addrlen,
                                   s->listen_timeout, h)) < 0)
             goto fail1;
         // Socket descriptor already closed here. Safe to overwrite to client one.
         fd = ret;
     } else {
-        ret = ff_connect_parallel(mctx, ai, s->open_timeout / 1000, 3, h, &fd, customize_fd, s);
+        printf("CONNECT PARALL\n");
+        ret = ff_connect_parallel(h->mctx, ai, s->open_timeout / 1000, 3, h, &fd, customize_fd, s);
         if (ret < 0)
             goto fail1;
     }
@@ -220,7 +276,7 @@ static int tcp_open(mctx_t mctx, URLContext *h, const char *uri, int flags)
 
  fail1:
     if (fd >= 0)
-        mtcp_close(mctx, fd);
+        mtcp_close(h->mctx, fd);
     freeaddrinfo(ai);
     return ret;
 }
@@ -267,20 +323,28 @@ static int tcp_read(URLContext *h, uint8_t *buf, int size)
 
 static int tcp_write(URLContext *h, const uint8_t *buf, int size)
 {
+    printf("TCP WRITE\n");
     TCPContext *s = h->priv_data;
     int ret;
     if (!(h->flags & AVIO_FLAG_NONBLOCK)) {
         ret = ff_network_wait_fd_timeout(s->fd, 1, h->rw_timeout, &h->interrupt_callback);
-        if (ret)
+        if (ret){
+            printf("ERR NETWORK WAIT\n");
             return ret;
+        }
     }
+    printf("s->fd == %d\n", s->fd);
     if(h->mctx != NULL){
         ret = mtcp_write(h->mctx, s->fd, buf, size);
+        if(ret < 0){
+            printf("MTCP RET = %d\n", ret);
+            printf("ERR MTCP WRITE\n");
+        }
     }
     else{
         printf("WRITE\n");
-        //ret = write(s->fd, buf, size);
-        ret = send(s->fd, buf, size, MSG_NOSIGNAL);
+        ret = write(s->fd, buf, size);
+        //ret = send(s->fd, buf, size, MSG_NOSIGNAL);
         printf("RET = %d\n", ret);
     }
     return ret < 0 ? ff_neterrno() : ret;
@@ -350,7 +414,7 @@ static int tcp_get_window_size(URLContext *h)
 
 const URLProtocol ff_tcp_protocol = {
     .name                = "tcp",
-    .url_open3            = tcp_open,
+    .url_open            = tcp_open,
     .url_accept          = tcp_accept,
     .url_read            = tcp_read,
     .url_write           = tcp_write,

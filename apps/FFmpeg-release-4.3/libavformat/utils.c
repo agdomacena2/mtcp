@@ -418,6 +418,7 @@ static int init_input(AVFormatContext *s, const char *filename,
     int score = AVPROBE_SCORE_RETRY;
 
     if (s->pb) {
+        printf("S = PB\n");
         s->flags |= AVFMT_FLAG_CUSTOM_IO;
         if (!s->iformat)
             return av_probe_input_buffer2(s->pb, &s->iformat, filename,
@@ -431,7 +432,7 @@ static int init_input(AVFormatContext *s, const char *filename,
     if ((s->iformat && s->iformat->flags & AVFMT_NOFILE) ||
         (!s->iformat && (s->iformat = av_probe_input_format2(&pd, 0, &score))))
         return score;
-
+    printf("AVIO OPEN\n");
     if ((ret = s->io_open(s, &s->pb, filename, AVIO_FLAG_READ | s->avio_flags, options)) < 0)
         return ret;
 

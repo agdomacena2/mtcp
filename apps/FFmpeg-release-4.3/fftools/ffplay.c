@@ -61,6 +61,15 @@
 
 #include <assert.h>
 
+#include <mtcp_api.h>
+#include <mtcp_epoll.h>
+#include "cpu.h"
+#include "rss.h"
+#include "http_parsing.h"
+#include "netlib.h"
+#include "debug.h"
+
+
 const char program_name[] = "ffplay";
 const int program_birth_year = 2003;
 
@@ -1267,6 +1276,7 @@ static void stream_component_close(VideoState *is, int stream_index)
 
 static void stream_close(VideoState *is)
 {
+    printf("STREAM CLOSE\n");
     AVFormatContext *s;
     /* XXX: use a special url_shutdown call to abort parse cleanly */
     is->abort_request = 1;
@@ -1386,8 +1396,9 @@ static void video_display(VideoState *is)
 
 static double get_clock(Clock *c)
 {
-    if (*c->queue_serial != c->serial)
+    if (*c->queue_serial != c->serial){
         return NAN;
+    }
     if (c->paused) {
         return c->pts;
     } else {
@@ -1707,6 +1718,7 @@ display:
         int64_t cur_time;
         int aqsize, vqsize, sqsize;
         double av_diff;
+        double m_clock;
 
         cur_time = av_gettime_relative();
         if (!last_time || (cur_time - last_time) >= 30000) {
@@ -1727,10 +1739,12 @@ display:
             else if (is->audio_st)
                 av_diff = get_master_clock(is) - get_clock(&is->audclk);
 
+            m_clock = get_master_clock(is);
+
             av_bprint_init(&buf, 0, AV_BPRINT_SIZE_AUTOMATIC);
             av_bprintf(&buf,
                       "%7.2f %s:%7.3f fd=%4d aq=%5dKB vq=%5dKB sq=%5dB f=%"PRId64"/%"PRId64"   \r",
-                      get_master_clock(is),
+                      isnan(m_clock) ? 0.0 : m_clock,
                       (is->audio_st && is->video_st) ? "A-V" : (is->video_st ? "M-V" : (is->audio_st ? "M-A" : "   ")),
                       av_diff,
                       is->frame_drops_early + is->frame_drops_late,
@@ -2778,6 +2792,7 @@ static int read_thread(void *arg)
     SDL_mutex *wait_mutex = SDL_CreateMutex();
     int scan_all_pmts_set = 0;
     int64_t pkt_ts;
+    int threadID;
     const char *out_filename = "output.mp4";
 
     is->out_filename = out_filename;
@@ -2803,8 +2818,11 @@ static int read_thread(void *arg)
         av_dict_set(&format_opts, "scan_all_pmts", "1", AV_DICT_DONT_OVERWRITE);
         scan_all_pmts_set = 1;
     }
+    printf("OPENING INPUT\n");
     err = avformat_open_input(&ic, is->filename, is->iformat, &format_opts);
+    printf("DONE OPEN INPUT\n");
     if (err < 0) {
+        printf("ERROR: %d\n", err);
         print_error(is->filename, err);
         ret = -1;
         goto fail;
@@ -3786,6 +3804,7 @@ int main(int argc, char **argv)
 
     signal(SIGINT , sigterm_handler); /* Interrupt (ANSI).    */
     signal(SIGTERM, sigterm_handler); /* Termination (ANSI).  */
+    mtcp_register_signal(SIGINT, sigterm_handler);
 
     show_banner(argc, argv, options);
 
