@@ -40,6 +40,7 @@
 #include "netlib.h"
 #include "debug.h"
 
+const int ismtcp = 0;
 
 typedef struct TCPContext {
     const AVClass *class;
@@ -193,37 +194,41 @@ static int tcp_open(URLContext *h, const char *uri, int flags)
     printf("HOSTNAME: %s\n", hostname);
     printf("PROTO: %s\n", proto);
 
-    daddr = inet_addr(hostname);
-    dport = htons(port);
-    saddr = INADDR_ANY;
+    if(ismtcp){
+        daddr = inet_addr(hostname);
+        dport = htons(port);
+    	saddr = INADDR_ANY;
 
-    num_cores = GetNumCPUs();
-    core_limit = num_cores;
-    concurrency = 100;
+    	num_cores = GetNumCPUs();
+    	core_limit = num_cores;
+    	concurrency = 100;
 
-    max_fds = concurrency * 3;
+    	max_fds = concurrency * 3;
 
-    mtcp_getconf(&mcfg);
-    mcfg.num_cores = core_limit;
-    mtcp_setconf(&mcfg);
+    	mtcp_getconf(&mcfg);
+    	mcfg.num_cores = core_limit;
+    	mtcp_setconf(&mcfg);
 
-    ret2 = mtcp_init(conf_file);
-    if (ret2) {
-        TRACE_ERROR("Failed to initialize mtcp.\n");
-        exit(EXIT_FAILURE);
+    	ret2 = mtcp_init(conf_file);
+    	if (ret2) {
+    	    TRACE_ERROR("Failed to initialize mtcp.\n");
+    	    exit(EXIT_FAILURE);
+    	}
+
+    	mtcp_getconf(&mcfg);
+    	mcfg.max_concurrency = max_fds;
+    	mcfg.max_num_buffers = max_fds;
+    	mtcp_setconf(&mcfg);
+
+    	mtcp_core_affinitize(1);
+    	h->mctx = CreateContext(1);
+    	if (!h->mctx) {
+        	printf("MCTX NULL\n");
+    	}
+    	mtcp_init_rss(h->mctx, saddr, 1, daddr, dport);
     }
 
-    mtcp_getconf(&mcfg);
-    mcfg.max_concurrency = max_fds;
-    mcfg.max_num_buffers = max_fds;
-    mtcp_setconf(&mcfg);
 
-    mtcp_core_affinitize(1);
-    h->mctx = CreateContext(1);
-    if (!h->mctx) {
-        printf("MCTX NULL\n");
-    }
-    mtcp_init_rss(h->mctx, saddr, 1, daddr, dport);
 
 #if HAVE_STRUCT_SOCKADDR_IN6
     // workaround for IOS9 getaddrinfo in IPv6 only network use hardcode IPv4 address can not resolve port number.
@@ -335,6 +340,7 @@ static int tcp_write(URLContext *h, const uint8_t *buf, int size)
     }
     printf("s->fd == %d\n", s->fd);
     if(h->mctx != NULL){
+    	printf("MTCP WRITE\n");
         ret = mtcp_write(h->mctx, s->fd, buf, size);
         if(ret < 0){
             printf("MTCP RET = %d\n", ret);
@@ -371,6 +377,7 @@ static int tcp_close(URLContext *h)
     TCPContext *s = h->priv_data;
     if(h->mctx != NULL){
         mtcp_close(h->mctx, s->fd);
+        mtcp_destroy();
     }
     else{
         closesocket(s->fd);
