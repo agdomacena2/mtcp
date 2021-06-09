@@ -190,9 +190,6 @@ static int tcp_open(URLContext *h, const char *uri, int flags)
     }
 
     cur_ai = ai;
-    printf("Destination port: %d\n", port);
-    printf("HOSTNAME: %s\n", hostname);
-    printf("PROTO: %s\n", proto);
 
     if(ismtcp){
         daddr = inet_addr(hostname);
@@ -222,9 +219,6 @@ static int tcp_open(URLContext *h, const char *uri, int flags)
 
     	mtcp_core_affinitize(1);
     	h->mctx = CreateContext(1);
-    	if (!h->mctx) {
-        	printf("MCTX NULL\n");
-    	}
     	mtcp_init_rss(h->mctx, saddr, 1, daddr, dport);
     }
 
@@ -267,7 +261,6 @@ static int tcp_open(URLContext *h, const char *uri, int flags)
         // Socket descriptor already closed here. Safe to overwrite to client one.
         fd = ret;
     } else {
-        printf("CONNECT PARALL\n");
         ret = ff_connect_parallel(h->mctx, ai, s->open_timeout / 1000, 3, h, &fd, customize_fd, s);
         if (ret < 0)
             goto fail1;
@@ -328,7 +321,6 @@ static int tcp_read(URLContext *h, uint8_t *buf, int size)
 
 static int tcp_write(URLContext *h, const uint8_t *buf, int size)
 {
-    printf("TCP WRITE\n");
     TCPContext *s = h->priv_data;
     int ret;
     if (!(h->flags & AVIO_FLAG_NONBLOCK)) {
@@ -338,9 +330,7 @@ static int tcp_write(URLContext *h, const uint8_t *buf, int size)
             return ret;
         }
     }
-    printf("s->fd == %d\n", s->fd);
     if(h->mctx != NULL){
-    	printf("MTCP WRITE\n");
         ret = mtcp_write(h->mctx, s->fd, buf, size);
         if(ret < 0){
             printf("MTCP RET = %d\n", ret);
@@ -348,10 +338,8 @@ static int tcp_write(URLContext *h, const uint8_t *buf, int size)
         }
     }
     else{
-        printf("WRITE\n");
         ret = write(s->fd, buf, size);
         //ret = send(s->fd, buf, size, MSG_NOSIGNAL);
-        printf("RET = %d\n", ret);
     }
     return ret < 0 ? ff_neterrno() : ret;
 }

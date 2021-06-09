@@ -564,6 +564,7 @@ int main(int argc, char **argv)
                 av_frame_free(&frame);
             }
         } else {
+            printf("REMUX\n");
             /* remux this frame without reencoding */
             av_packet_rescale_ts(&packet,
                                  ifmt_ctx->streams[stream_index]->time_base,

@@ -84,7 +84,6 @@ static int url_alloc_for_protocol(URLContext **puc, const URLProtocol *up,
                                   const char *filename, int flags,
                                   const AVIOInterruptCB *int_cb)
 {
-    printf("FFURLALLOC\n");
     URLContext *uc;
     int err;
 
@@ -114,10 +113,6 @@ static int url_alloc_for_protocol(URLContext **puc, const URLProtocol *up,
     uc->flags           = flags;
     uc->is_streamed     = 0; /* default = not streamed */
     uc->max_packet_size = 0; /* default: stream file */
-    printf("PROT : %s\n", uc->prot->name);
-    if(strcmp(uc->prot->name, "tcp") == 0){
-        printf("RAWR\n");
-    }
     if (up->priv_data_size) {
         uc->priv_data = av_mallocz(up->priv_data_size);
         if (!uc->priv_data) {
@@ -308,7 +303,6 @@ static const struct URLProtocol *url_find_protocol(const char *filename)
 int ffurl_alloc(URLContext **puc, const char *filename, int flags,
                 const AVIOInterruptCB *int_cb)
 {
-    printf("FFURL ALLOC\n");
     const URLProtocol *p = NULL;
 
     p = url_find_protocol(filename);
@@ -324,7 +318,6 @@ int ffurl_open_whitelist(URLContext **puc, const char *filename, int flags,
                          const char *whitelist, const char* blacklist,
                          URLContext *parent)
 {
-    printf("OPEN WHITELIST\n");
     AVDictionary *tmp_opts = NULL;
     AVDictionaryEntry *e;
     int ret = ffurl_alloc(puc, filename, flags, int_cb);
@@ -370,7 +363,6 @@ fail:
 int ffurl_open(URLContext **puc, const char *filename, int flags,
                const AVIOInterruptCB *int_cb, AVDictionary **options)
 {
-    printf("FFURL OPEN\n");
     return ffurl_open_whitelist(puc, filename, flags,
                                 int_cb, options, NULL, NULL, NULL);
 }
@@ -384,13 +376,11 @@ static inline int retry_transfer_wrapper(URLContext *h, uint8_t *buf,
     int ret, len;
     int fast_retries = 5;
     int64_t wait_since = 0;
-    printf("TRANSFER WRAPPER\n");
 
     len = 0;
     while (len < size_min) {
         if (ff_check_interrupt(&h->interrupt_callback))
             return AVERROR_EXIT;
-        printf("TRANS FUNC\n");
         ret = transfer_func(h, buf + len, size - len);
         if (ret == AVERROR(EINTR))
             continue;
@@ -412,7 +402,6 @@ static inline int retry_transfer_wrapper(URLContext *h, uint8_t *buf,
         } else if (ret == AVERROR_EOF)
             return (len > 0) ? len : AVERROR_EOF;
         else if (ret < 0){
-            printf("RET == %d\n", ret);
             return ret;
         }
         if (ret) {
@@ -499,7 +488,6 @@ const char *avio_find_protocol_name(const char *url)
 
 int avio_check(const char *url, int flags)
 {
-    printf("AVIO CHECK\n");
     URLContext *h;
     int ret = ffurl_alloc(&h, url, flags, NULL);
     if (ret < 0)
@@ -519,7 +507,6 @@ int avio_check(const char *url, int flags)
 
 int avpriv_io_move(const char *url_src, const char *url_dst)
 {
-    printf("AVPRIV IO MOVE\n");
     URLContext *h_src, *h_dst;
     int ret = ffurl_alloc(&h_src, url_src, AVIO_FLAG_READ_WRITE, NULL);
     if (ret < 0)
@@ -542,7 +529,6 @@ int avpriv_io_move(const char *url_src, const char *url_dst)
 
 int avpriv_io_delete(const char *url)
 {
-    printf("AVPRIV IO DELTE\n");
     URLContext *h;
     int ret = ffurl_alloc(&h, url, AVIO_FLAG_WRITE, NULL);
     if (ret < 0)
@@ -559,7 +545,6 @@ int avpriv_io_delete(const char *url)
 
 int avio_open_dir(AVIODirContext **s, const char *url, AVDictionary **options)
 {
-    printf("AVIO OPEN DIR\n");
     URLContext *h = NULL;
     AVIODirContext *ctx = NULL;
     int ret;

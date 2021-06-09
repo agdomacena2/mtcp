@@ -228,6 +228,8 @@ typedef struct VideoState {
 	AVFormatContext *oc;
 	int realtime;
 
+	double start_time;
+
 	Clock audclk;
 	Clock vidclk;
 	Clock extclk;
@@ -1277,7 +1279,6 @@ static void stream_component_close(VideoState *is, int stream_index)
 
 static void stream_close(VideoState *is)
 {
-	printf("STREAM CLOSE\n");
 	/* XXX: use a special url_shutdown call to abort parse cleanly */
 	is->abort_request = 1;
 	SDL_WaitThread(is->read_tid, NULL);
@@ -1291,10 +1292,6 @@ static void stream_close(VideoState *is)
 		stream_component_close(is, is->subtitle_stream);
 
 	avformat_close_input(&is->ic);
-
-	if(is->oc && is->oc->oformat && !(is->oc->oformat->flags & AVFMT_NOFILE))
-		avio_closep(&is->oc->pb);
-	avformat_free_context(is->oc);
 
 
 	packet_queue_destroy(&is->videoq);
@@ -1718,9 +1715,13 @@ display:
 		AVBPrint buf;
 		static int64_t last_time;
 		int64_t cur_time;
+		int64_t total_size;
 		int aqsize, vqsize, sqsize;
 		double av_diff;
 		double m_clock;
+		float speed;
+		float t;
+		int temp;
 
 		cur_time = av_gettime_relative();
 		if (!last_time || (cur_time - last_time) >= 30000) {
@@ -1742,16 +1743,25 @@ display:
 				av_diff = get_master_clock(is) - get_clock(&is->audclk);
 
 			m_clock = get_master_clock(is);
+			if(is->start_time && !(isnan(m_clock))){
+				is->start_time=m_clock;
+			}
+
+			if(!is->start_time){
+				t = (m_clock - is->start_time) / 1000.0;
+				temp = (int) t;
+				speed = temp / t ;
+			}
 
 			av_bprint_init(&buf, 0, AV_BPRINT_SIZE_AUTOMATIC);
 			av_bprintf(&buf,
-					  "%7.2f %s:%7.3f fd=%4d aq=%5dKB vq=%5dKB sq=%5dB f=%"PRId64"/%"PRId64"   \r",
-					  isnan(m_clock) ? 0.0 : m_clock,
+					  "speed=%7.5f %s:%7.3f fd=%4d t=%7.3f temp=%5d sq=%5dB f=%"PRId64"/%"PRId64"   \r",
+					  isnan(speed) ? 0.0 : speed,
 					  (is->audio_st && is->video_st) ? "A-V" : (is->video_st ? "M-V" : (is->audio_st ? "M-A" : "   ")),
 					  av_diff,
 					  is->frame_drops_early + is->frame_drops_late,
-					  aqsize / 1024,
-					  vqsize / 1024,
+					  t,
+					  temp,
 					  sqsize,
 					  is->video_st ? is->viddec.avctx->pts_correction_num_faulty_dts : 0,
 					  is->video_st ? is->viddec.avctx->pts_correction_num_faulty_pts : 0);
@@ -2787,7 +2797,7 @@ static int read_thread(void *arg)
 	AVFormatContext *s;   
 	int err, i, ret;
 	int st_index[AVMEDIA_TYPE_NB];
-	AVPacket pkt1, *pkt = &pkt1;
+	AVPacket pkt1, *pkt = &pkt1, pkt2, *pkt3 = &pkt2;
 	int64_t stream_start_time;
 	int pkt_in_play_range = 0;
 	AVDictionaryEntry *t;
@@ -2822,11 +2832,8 @@ static int read_thread(void *arg)
 		av_dict_set(&format_opts, "scan_all_pmts", "1", AV_DICT_DONT_OVERWRITE);
 		scan_all_pmts_set = 1;
 	}
-	printf("OPENING INPUT\n");
 	err = avformat_open_input(&ic, is->filename, is->iformat, &format_opts);
-	printf("DONE OPEN INPUT\n");
 	if (err < 0) {
-		printf("ERROR: %d\n", err);
 		print_error(is->filename, err);
 		ret = -1;
 		goto fail;
@@ -2895,23 +2902,22 @@ static int read_thread(void *arg)
 	if (show_status)
 		av_dump_format(ic, 0, is->filename, 0);
 
-	//avformat_alloc_output_context2(&oc, NULL, NULL, out_filename);
-	//if(!oc){
-	//	av_log(NULL, AV_LOG_ERROR, "Could not create output context\n");
-	//	ret = AVERROR_UNKNOWN;
-	//	goto fail;
-	//}
+	avformat_alloc_output_context2(&oc, NULL, NULL, out_filename);
+	if(!oc){
+		av_log(NULL, AV_LOG_ERROR, "Could not create output context\n");
+		ret = AVERROR_UNKNOWN;
+		goto fail;
+	}
+	stream_mapping_size = ic->nb_streams;
+	stream_mapping = av_mallocz_array(stream_mapping_size, sizeof(*stream_mapping));
+	if (!stream_mapping) {
+		ret = AVERROR(ENOMEM);
+		goto fail;
+	}
 
-	//stream_mapping_size = ic->nb_streams;
-	//stream_mapping = av_mallocz_array(stream_mapping_size, sizeof(*stream_mapping));
-	//if (!stream_mapping) {
-	//	ret = AVERROR(ENOMEM);
-	//	goto fail;
-	//}
-
-	//oformat = oc->oformat;
-	//is->oc = oc;
-	//is->oformat = oformat;
+	oformat = oc->oformat;
+	is->oc = oc;
+	is->oformat = oformat;
 
 	for (i = 0; i < ic->nb_streams; i++) {
 		AVStream *st = ic->streams[i];
@@ -2922,27 +2928,27 @@ static int read_thread(void *arg)
 			if (avformat_match_stream_specifier(ic, st, wanted_stream_spec[type]) > 0)
 				st_index[type] = i;
 
-		//if (st->codecpar->codec_type != AVMEDIA_TYPE_AUDIO &&
-		//	st->codecpar->codec_type != AVMEDIA_TYPE_VIDEO &&
-		//	st->codecpar->codec_type != AVMEDIA_TYPE_SUBTITLE) {
-		//	stream_mapping[i] = -1;
-		//	continue;
-		//}
+		if (st->codecpar->codec_type != AVMEDIA_TYPE_AUDIO &&
+			st->codecpar->codec_type != AVMEDIA_TYPE_VIDEO &&
+			st->codecpar->codec_type != AVMEDIA_TYPE_SUBTITLE) {
+			stream_mapping[i] = -1;
+			continue;
+		}
 
-		//stream_mapping[i] = stream_index++;
+		stream_mapping[i] = stream_index++;
 
-		//out_st = avformat_new_stream(oc, NULL);
-		//if (!out_st) {
-		//	av_log(NULL, AV_LOG_INFO, "Failed allocating output stream\n");
-		//	ret = AVERROR_UNKNOWN;
-		//	goto fail;
-		//}
-		//ret = avcodec_parameters_copy(out_st->codecpar, st->codecpar);
-		//if (ret < 0) {
-		//	av_log(NULL, AV_LOG_INFO, "Failed to copy codec parameters\n");
-		//	goto fail;
-		//}
-		//out_st->codecpar->codec_tag = 0;
+		out_st = avformat_new_stream(oc, NULL);
+		if (!out_st) {
+			av_log(NULL, AV_LOG_INFO, "Failed allocating output stream\n");
+			ret = AVERROR_UNKNOWN;
+			goto fail;
+		}
+		ret = avcodec_parameters_copy(out_st->codecpar, st->codecpar);
+		if (ret < 0) {
+			av_log(NULL, AV_LOG_INFO, "Failed to copy codec parameters\n");
+			goto fail;
+		}
+		out_st->codecpar->codec_tag = 0;
 	}
 	for (i = 0; i < AVMEDIA_TYPE_NB; i++) {
 		if (wanted_stream_spec[i] && st_index[i] == -1) {
@@ -2951,21 +2957,20 @@ static int read_thread(void *arg)
 		}
 	}
 
-	//av_dump_format(oc, 0, out_filename, 1);
+	av_dump_format(oc, 0, out_filename, 1);
 
-	//if (!(oformat->flags & AVFMT_NOFILE)) {
-	//	ret = avio_open(&oc->pb, out_filename, AVIO_FLAG_WRITE);
-	//	if (ret < 0) {
-	//		av_log(NULL, AV_LOG_INFO, "Could not open output file '%s'\n", out_filename);
-	//		goto fail;
-	//	}
-	//}
-	//printf("WRITE HEADER\n");
-	//ret = avformat_write_header(oc, NULL);
-	//if (ret < 0) {
-	//	av_log(NULL, AV_LOG_INFO, "Error occurred when opening output file\n");
-	//	goto fail;
-	//}
+	if (!(oformat->flags & AVFMT_NOFILE)) {
+		ret = avio_open(&oc->pb, out_filename, AVIO_FLAG_WRITE);
+		if (ret < 0) {
+			av_log(NULL, AV_LOG_INFO, "Could not open output file '%s'\n", out_filename);
+			goto fail;
+		}
+	}
+	ret = avformat_write_header(oc, NULL);
+	if (ret < 0) {
+		av_log(NULL, AV_LOG_INFO, "Error occurred when opening output file\n");
+		goto fail;
+	}
 
 	if (!video_disable)
 		st_index[AVMEDIA_TYPE_VIDEO] =
@@ -3114,6 +3119,7 @@ static int read_thread(void *arg)
 		}
 
 		ret = av_read_frame(ic, pkt);
+		av_packet_ref(pkt3,pkt);
 		if (ret < 0) {
 			if ((ret == AVERROR_EOF || avio_feof(ic->pb)) && !is->eof) {
 				if (is->video_stream >= 0)
@@ -3133,12 +3139,25 @@ static int read_thread(void *arg)
 		} else {
 			is->eof = 0;
 		}
-		//in_stream  = ic->streams[pkt->stream_index];
-		//if (pkt->stream_index >= stream_mapping_size ||
-		//	stream_mapping[pkt->stream_index] < 0) {
-		//	av_packet_unref(pkt);
-		//	continue;
-		//}
+		in_stream  = ic->streams[pkt3->stream_index];
+		if (pkt3->stream_index >= stream_mapping_size ||
+			stream_mapping[pkt3->stream_index] < 0) {
+			av_packet_unref(pkt3);
+			continue;
+		}
+
+		pkt3->stream_index = stream_mapping[pkt3->stream_index];
+		out_stream = oc->streams[pkt3->stream_index];
+		pkt3->pts = av_rescale_q_rnd(pkt3->pts, in_stream->time_base, out_stream->time_base, AV_ROUND_NEAR_INF|AV_ROUND_PASS_MINMAX);
+        pkt3->dts = av_rescale_q_rnd(pkt3->dts, in_stream->time_base, out_stream->time_base, AV_ROUND_NEAR_INF|AV_ROUND_PASS_MINMAX);
+        pkt3->duration = av_rescale_q(pkt3->duration, in_stream->time_base, out_stream->time_base);
+       	pkt3->pos = -1;
+		ret = av_interleaved_write_frame(oc, pkt3);
+		if(ret < 0){
+			av_log(NULL, AV_LOG_INFO, "Error Muxing packet Audio\n");
+			goto fail;
+		}
+		av_packet_unref(pkt3);
 
 		/* check if packet is in play range specified by user, then queue, otherwise discard */
 		stream_start_time = ic->streams[pkt->stream_index]->start_time;
@@ -3150,43 +3169,17 @@ static int read_thread(void *arg)
 				<= ((double)duration / 1000000);
 		if (pkt->stream_index == is->audio_stream && pkt_in_play_range) {
 			packet_queue_put(&is->audioq, pkt);
-			//pkt->stream_index = stream_mapping[pkt->stream_index];
-			//out_stream = oc->streams[pkt->stream_index];
-			//pkt->pts = av_rescale_q_rnd(pkt->pts, in_stream->time_base, out_stream->time_base, AV_ROUND_NEAR_INF|AV_ROUND_PASS_MINMAX);
-        	//pkt->dts = av_rescale_q_rnd(pkt->dts, in_stream->time_base, out_stream->time_base, AV_ROUND_NEAR_INF|AV_ROUND_PASS_MINMAX);
-        	//pkt->duration = av_rescale_q(pkt->duration, in_stream->time_base, out_stream->time_base);
-       		//pkt->pos = -1;
-			//ret = av_interleaved_write_frame(oc, pkt);
-			//if(ret < 0){
-			//	av_log(NULL, AV_LOG_INFO, "Error Muxing packet Audio\n");
-			//	goto fail;
-			//}
 		} else if (pkt->stream_index == is->video_stream && pkt_in_play_range
 				   && !(is->video_st->disposition & AV_DISPOSITION_ATTACHED_PIC)) {
 			packet_queue_put(&is->videoq, pkt);
-			//av_packet_rescale_ts(pkt, ic->streams[pkt->stream_index]->time_base, oc->streams[pkt->stream_index]->time_base);
-			//ret = av_interleaved_write_frame(oc, pkt);
-			//if(ret < 0){
-			//	av_log(NULL, AV_LOG_INFO, "Error Muxing packet\n");
-			//	goto fail;
-			//}
 		} else if (pkt->stream_index == is->subtitle_stream && pkt_in_play_range) {
 			packet_queue_put(&is->subtitleq, pkt);
-			//pkt->pts = av_rescale_q_rnd(pkt->pts, ic->streams[pkt->stream_index]->time_base, oc->streams[pkt->stream_index]->time_base, AV_ROUND_NEAR_INF|AV_ROUND_PASS_MINMAX);
-			//pkt->dts = av_rescale_q_rnd(pkt->dts, ic->streams[pkt->stream_index]->time_base, oc->streams[pkt->stream_index]->time_base, AV_ROUND_NEAR_INF|AV_ROUND_PASS_MINMAX);
-			//pkt->duration = av_rescale_q(pkt->duration, ic->streams[pkt->stream_index]->time_base, oc->streams[pkt->stream_index]->time_base);
-			//pkt->pos = -1;
-			//ret = av_interleaved_write_frame(oc, pkt);
-			//if(ret < 0){
-			//    av_log(NULL, AV_LOG_INFO, "Error Muxing packet\n");
-			//    goto fail;
-			//}
 		} else {
 			av_packet_unref(pkt);
 		}
 	}
 
-	//av_write_trailer(oc);
+	av_write_trailer(oc);
 	ret = 0;
  fail:
 	if (ic && !is->ic)

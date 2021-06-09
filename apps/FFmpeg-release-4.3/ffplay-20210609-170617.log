@@ -1,0 +1,2241 @@
+ffplay started on 2021-06-09 at 17:06:17
+Report written to "ffplay-20210609-170617.log"
+Log level: 48
+Command line:
+/home/ndsg/Downloads/mtcp/apps/FFmpeg-release-4.3/ffplay_g -i http://10.0.0.2:8080 -report
+ffplay version f0c877b Copyright (c) 2003-2021 the FFmpeg developers
+  built with gcc 5.4.0 (Ubuntu 5.4.0-6ubuntu1~16.04.12) 20160609
+  configuration: --cc='gcc -fgnu89-inline -Wall' --disable-doc --extra-ldflags='-Wl,--start-group' --extra-ldflags=-L/home/ndsg/Downloads/mtcp/mtcp/lib --extra-cflags=-I/home/ndsg/Downloads/mtcp/mtcp/include --extra-cflags=-I/home/ndsg/Downloads/mtcp/util/include --extra-ldflags='-L${RTE_SDK}/${RTE_TARGET}lib' --extra-ldflags=-L/home/ndsg/Downloads/mtcp/dpdk/x86_64-native-linuxapp-gcc/lib --extra-libs='-Wl,-ldl' --extra-libs='-Wl,-lnuma' --extra-libs='-Wl,-lm' --extra-libs='-Wl,-lrt' --extra-libs='-Wl,--no-whole-archive' --extra-libs='-Wl,-lrte_pmd_ifpga_rawdev' --extra-libs='-Wl,-lrte_bus_ifpga' --extra-libs='-Wl,-lrte_pmd_dpaa2_qdma' --extra-libs='-Wl,-lrte_pmd_dpaa2_cmdif' --extra-libs='-Wl,-lrte_pmd_skeleton_rawdev' --extra-libs='-Wl,-lrte_pmd_opdl_event' --extra-libs='-Wl,-lrte_pmd_octeontx' --extra-libs='-Wl,-lrte_mempool_octeontx' --extra-libs='-Wl,-lrte_pmd_dpaa2_event' --extra-libs='-Wl,-lrte_pmd_dpaa_event' --extra-libs='-Wl,-lrte_pmd_octeontx_ssovf' --extra-libs='-Wl,-lrte_pmd_sw_event' --extra-li  WARNING: library configuration mismatch
+  swscale     configuration: --prefix=/usr --extra-version='0york0~16.04' --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --enable-avresample --disable-filter=resample --enable-gnutls --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libjack --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librabbitmq --enable-librsvg --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzmq   swresample  configuration: --prefix=/usr --extra-version='0york0~16.04' --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --enable-avresample --disable-filter=resample --enable-gnutls --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libjack --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librabbitmq --enable-librsvg --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzmq   libavutil      56. 51.100 / 56. 51.100
+  libavcodec     58. 91.100 / 58. 91.100
+  libavformat    58. 45.100 / 58. 45.100
+  libavdevice    58. 10.100 / 58. 10.100
+  libavfilter     7. 85.100 /  7. 85.100
+  libswscale      5.  7.100 /  5.  7.100
+  libswresample   3.  7.100 /  3.  7.100
+Initialized opengl renderer.
+speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   [NULL @ 0x7fffd4000940] Opening 'http://10.0.0.2:8080' for reading
+[http @ 0x7fffd4001780] Setting default whitelist 'http,https,tls,rtp,tcp,udp,crypto,httpproxy,data'
+[tcp @ 0x7fffd40044c0] Original list of addresses:
+[tcp @ 0x7fffd40044c0] Address 10.0.0.2 port 8080
+[tcp @ 0x7fffd40044c0] Interleaved list of addresses:
+[tcp @ 0x7fffd40044c0] Address 10.0.0.2 port 8080
+[tcp @ 0x7fffd40044c0] Starting connection attempt to 10.0.0.2 port 8080
+[tcp @ 0x7fffd40044c0] Successfully connected to 10.0.0.2 port 8080
+[http @ 0x7fffd4001780] request: GET / HTTP/1.1
+User-Agent: Lavf/58.45.100
+Accept: */*
+Range: bytes=0-
+Connection: close
+Host: 10.0.0.2:8080
+Icy-MetaData: 1
+
+
+speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   [flv @ 0x7fffd4000940] Format flv probed with size=2048 and score=100
+[flv @ 0x7fffd4000940] Before avformat_find_stream_info() pos: 13 bytes read:3300 seeks:0 nb_streams:0
+[NULL @ 0x7fffd400e100] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[NULL @ 0x7fffd400e100] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd400e100] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd400e100] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd400e100] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd400e100] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd400e100] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd400e100] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd400e100] Format yuv420p chosen by get_format().
+[h264 @ 0x7fffd400e100] Reinit context to 1280x720, pix_fmt: yuv420p
+speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   [h264 @ 0x7fffd400e100] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd400e100] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd400e100] nal_unit_type: 9(AUD), nal_ref_idc: 0
+speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   [h264 @ 0x7fffd400e100] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd400e100] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd400e100] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd400e100] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd400e100] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd400e100] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd400e100] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd400e100] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd400e100] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   [flv @ 0x7fffd4000940] All info found
+[flv @ 0x7fffd4000940] rfps: 29.666667 0.013804
+[flv @ 0x7fffd4000940] rfps: 29.750000 0.007312
+[flv @ 0x7fffd4000940] rfps: 29.750000 0.007312
+[flv @ 0x7fffd4000940] rfps: 29.833333 0.002880
+[flv @ 0x7fffd4000940] rfps: 29.916667 0.000509
+[flv @ 0x7fffd4000940] rfps: 29.916667 0.000509
+[flv @ 0x7fffd4000940] rfps: 30.000000 0.000198
+[flv @ 0x7fffd4000940] rfps: 30.000000 0.000198
+[flv @ 0x7fffd4000940] rfps: 60.000000 0.000791
+[flv @ 0x7fffd4000940] rfps: 120.000000 0.003164
+[flv @ 0x7fffd4000940] rfps: 240.000000 0.012656
+[flv @ 0x7fffd4000940] rfps: 240.000000 0.012656
+[flv @ 0x7fffd4000940] rfps: 29.970030 0.000072
+[flv @ 0x7fffd4000940] rfps: 29.970030 0.000072
+[flv @ 0x7fffd4000940] rfps: 59.940060 0.000289
+[flv @ 0x7fffd4000940] rfps: 59.940060 0.000289
+[flv @ 0x7fffd4000940] After avformat_find_stream_info() pos: 94172 bytes read:96758 seeks:0 frames:104
+Input #0, flv, from 'http://10.0.0.2:8080':
+  Metadata:
+    encoding_tool   : VLC 3.0.8
+    encoder         : Lavf58.3.100
+  Duration: 00:00:00.00, start: 17289.124000, bitrate: N/A
+    Stream #0:0, 63, 1/1000: Audio: aac (LC), 48000 Hz, stereo, fltp, 64 kb/s
+    Stream #0:1, 41, 1/1000: Video: h264 (Main), yuv420p(progressive), 1280x720, 512 kb/s, 30.30 fps, 29.97 tbr, 1k tbn, 59.94 tbc
+Output #0, mp4, to 'output.mp4':
+    Stream #0:0, 0, 0/0: Audio: aac (LC), 48000 Hz, stereo, fltp, 64 kb/s
+    Stream #0:1, 0, 0/0: Video: h264 (Main), yuv420p(progressive), 1280x720, q=2-31, 512 kb/s
+[file @ 0x7fffd4004700] Setting default whitelist 'file,crypto,data'
+speed=0.00000    :  0.000 fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   detected 1 logical cores
+[ffplay_abuffer @ 0x7fffd40091c0] Setting 'sample_rate' to value '48000'
+[ffplay_abuffer @ 0x7fffd40091c0] Setting 'sample_fmt' to value 'fltp'
+[ffplay_abuffer @ 0x7fffd40091c0] Setting 'channels' to value '2'
+[ffplay_abuffer @ 0x7fffd40091c0] Setting 'time_base' to value '1/48000'
+[ffplay_abuffer @ 0x7fffd40091c0] Setting 'channel_layout' to value '0x3'
+[ffplay_abuffer @ 0x7fffd40091c0] tb:1/48000 samplefmt:fltp samplerate:48000 chlayout:0x3
+[ffplay_abuffersink @ 0x7fffd403f380] auto-inserting filter 'auto_resampler_0' between the filter 'ffplay_abuffer' and the filter 'ffplay_abuffersink'
+[AVFilterGraph @ 0x7fffd400e5c0] query_formats: 2 queried, 0 merged, 3 already done, 0 delayed
+[auto_resampler_0 @ 0x7fffd4040640] [SWR @ 0x7fffd4017d40] Using fltp internally between filters
+[auto_resampler_0 @ 0x7fffd4040640] ch:2 chl:stereo fmt:fltp r:48000Hz -> ch:2 chl:stereo fmt:s16 r:48000Hz
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+Audio frame changed from rate:48000 ch:2 fmt:fltp layout:stereo serial:-1 to rate:48000 ch:2 fmt:fltp layout:stereo serial:1
+[ffplay_abuffer @ 0x7fffd8005640] Setting 'sample_rate' to value '48000'
+[ffplay_abuffer @ 0x7fffd8005640] Setting 'sample_fmt' to value 'fltp'
+[ffplay_abuffer @ 0x7fffd8005640] Setting 'channels' to value '2'
+[ffplay_abuffer @ 0x7fffd8005640] Setting 'time_base' to value '1/48000'
+[ffplay_abuffer @ 0x7fffd8005640] Setting 'channel_layout' to value '0x3'
+[ffplay_abuffer @ 0x7fffd8005640] tb:1/48000 samplefmt:fltp samplerate:48000 chlayout:0x3
+[ffplay_abuffersink @ 0x7fffd8006940] auto-inserting filter 'auto_resampler_0' between the filter 'ffplay_abuffer' and the filter 'ffplay_abuffersink'
+[AVFilterGraph @ 0x7fffd8005340] query_formats: 2 queried, 0 merged, 3 already done, 0 delayed
+[auto_resampler_0 @ 0x7fffd8008000] [SWR @ 0x7fffd80084c0] Using fltp internally between filters
+[auto_resampler_0 @ 0x7fffd8008000] ch:2 chl:stereo fmt:fltp r:48000Hz -> ch:2 chl:stereo fmt:s16 r:48000Hz
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] Format yuv420p chosen by get_format().
+[h264 @ 0x7fffd4259880] Reinit context to 1280x720, pix_fmt: yuv420p
+speed=0.00000 A-V:    nan fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   speed=0.00000 A-V:    nan fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   Video frame changed from size:0x0 format:none serial:-1 to size:1280x720 format:yuv420p serial:1
+[ffplay_buffer @ 0x7fffc82dccc0] Setting 'video_size' to value '1280x720'
+[ffplay_buffer @ 0x7fffc82dccc0] Setting 'pix_fmt' to value '0'
+[ffplay_buffer @ 0x7fffc82dccc0] Setting 'time_base' to value '1/1000'
+[ffplay_buffer @ 0x7fffc82dccc0] Setting 'pixel_aspect' to value '0/1'
+[ffplay_buffer @ 0x7fffc82dccc0] Setting 'frame_rate' to value '30000/1001'
+[ffplay_buffer @ 0x7fffc82dccc0] w:1280 h:720 pixfmt:yuv420p tb:1/1000 fr:30000/1001 sar:0/1
+[AVFilterGraph @ 0x7fffc82dca00] query_formats: 2 queried, 1 merged, 0 already done, 0 delayed
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+Created 1280x720 texture with SDL_PIXELFORMAT_IYUV.
+speed=0.00000 A-V:    nan fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.00000 A-V:    nan fd=   0 t=    nan temp=-2147483648 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.00000 A-V:    nan fd=   1 t=    nan temp=-2147483648 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.00000 A-V:    nan fd=   1 t=    nan temp=-2147483648 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.00000 A-V:    nan fd=   2 t=    nan temp=-2147483648 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.00000 A-V:    nan fd=   2 t=    nan temp=-2147483648 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.00000 A-V:    nan fd=   3 t=    nan temp=-2147483648 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.00000 A-V:    nan fd=   3 t=    nan temp=-2147483648 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.00000 A-V:    nan fd=   4 t=    nan temp=-2147483648 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.00000 A-V:    nan fd=   4 t=    nan temp=-2147483648 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98327 A-V: -0.588 fd=   6 t= 17.289 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98326 A-V: -0.430 fd=   6 t= 17.289 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98325 A-V: -0.362 fd=   7 t= 17.290 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98324 A-V: -0.174 fd=   7 t= 17.290 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98323 A-V: -0.017 fd=   7 t= 17.290 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98322 A-V:  0.164 fd=  10 t= 17.290 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98321 A-V:  0.206 fd=  13 t= 17.290 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98320 A-V:  0.213 fd=  20 t= 17.291 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98319 A-V:  0.096 fd=  23 t= 17.291 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98318 A-V:  0.201 fd=  29 t= 17.291 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98317 A-V:  0.067 fd=  33 t= 17.291 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+speed=0.98315 A-V:  0.179 fd=  36 t= 17.291 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98314 A-V:  0.309 fd=  43 t= 17.292 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98313 A-V:  0.222 fd=  50 t= 17.292 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98312 A-V:  0.107 fd=  53 t= 17.292 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98311 A-V:  0.207 fd=  59 t= 17.292 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98309 A-V:  0.167 fd=  65 t= 17.292 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98308 A-V:  0.152 fd=  70 t= 17.293 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98307 A-V:  0.065 fd=  74 t= 17.293 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98306 A-V:  0.169 fd=  77 t= 17.293 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98305 A-V:  0.122 fd=  82 t= 17.293 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98304 A-V:  0.198 fd=  87 t= 17.293 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98303 A-V:  0.279 fd=  91 t= 17.293 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98302 A-V:  0.163 fd=  96 t= 17.294 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98301 A-V:  0.106 fd=  99 t= 17.294 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98300 A-V:  0.206 fd= 105 t= 17.294 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98299 A-V:  0.075 fd= 109 t= 17.294 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98298 A-V:  0.186 fd= 113 t= 17.294 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98297 A-V:  0.267 fd= 117 t= 17.295 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98296 A-V:  0.175 fd= 122 t= 17.295 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98295 A-V:  0.104 fd= 125 t= 17.295 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98294 A-V:  0.187 fd= 131 t= 17.295 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+speed=0.98293 A-V:  0.069 fd= 135 t= 17.295 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98292 A-V:  0.182 fd= 139 t= 17.295 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98291 A-V:  0.260 fd= 143 t= 17.296 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98290 A-V:  0.167 fd= 149 t= 17.296 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98289 A-V:  0.094 fd= 151 t= 17.296 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98288 A-V:  0.196 fd= 157 t= 17.296 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98287 A-V:  0.113 fd= 160 t= 17.296 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98286 A-V:  0.199 fd= 166 t= 17.296 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98285 A-V:  0.076 fd= 170 t= 17.297 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98284 A-V:  0.181 fd= 174 t= 17.297 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98283 A-V:  0.262 fd= 178 t= 17.297 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+speed=0.98282 A-V:  0.187 fd= 184 t= 17.297 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98281 A-V:  0.104 fd= 187 t= 17.297 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98280 A-V:  0.186 fd= 193 t= 17.298 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98279 A-V:  0.075 fd= 197 t= 17.298 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98278 A-V:  0.181 fd= 201 t= 17.298 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98277 A-V:  0.265 fd= 204 t= 17.298 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98276 A-V:  0.204 fd= 211 t= 17.298 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98274 A-V:  0.113 fd= 214 t= 17.299 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98273 A-V:  0.209 fd= 220 t= 17.299 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98272 A-V:  0.081 fd= 224 t= 17.299 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98272 A-V:  0.185 fd= 227 t= 17.299 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98270 A-V:  0.244 fd= 232 t= 17.299 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98269 A-V:  0.163 fd= 238 t= 17.299 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98268 A-V:  0.098 fd= 241 t= 17.300 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98267 A-V:  0.189 fd= 247 t= 17.300 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98266 A-V:  0.111 fd= 250 t= 17.300 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98265 A-V:  0.229 fd= 257 t= 17.300 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98264 A-V:  0.109 fd= 260 t= 17.300 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98263 A-V:  0.205 fd= 267 t= 17.301 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98262 A-V:  0.057 fd= 270 t= 17.301 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98261 A-V:  0.214 fd= 274 t= 17.301 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98259 A-V:  0.275 fd= 278 t= 17.301 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98259 A-V:  0.202 fd= 285 t= 17.301 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98257 A-V:  0.095 fd= 288 t= 17.302 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98257 A-V:  0.175 fd= 294 t= 17.302 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98255 A-V:  0.060 fd= 297 t= 17.302 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98255 A-V:  0.202 fd= 301 t= 17.302 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98253 A-V:  0.266 fd= 305 t= 17.302 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98252 A-V:  0.192 fd= 311 t= 17.302 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98251 A-V:  0.111 fd= 314 t= 17.303 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98250 A-V:  0.204 fd= 321 t= 17.303 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98249 A-V:  0.094 fd= 324 t= 17.303 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98248 A-V:  0.193 fd= 330 t= 17.303 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98247 A-V:  0.108 fd= 334 t= 17.303 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98246 A-V:  0.160 fd= 339 t= 17.304 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98245 A-V:  0.177 fd= 344 t= 17.304 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98243 A-V:  0.168 fd= 349 t= 17.304 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98243 A-V:  0.175 fd= 354 t= 17.304 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98241 A-V:  0.109 fd= 358 t= 17.304 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98241 A-V:  0.150 fd= 362 t= 17.304 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98239 A-V:  0.111 fd= 366 t= 17.305 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98239 A-V:  0.163 fd= 371 t= 17.305 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98238 A-V:  0.083 fd= 374 t= 17.305 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98237 A-V:  0.167 fd= 379 t= 17.305 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98236 A-V:  0.072 fd= 383 t= 17.305 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98235 A-V:  0.180 fd= 386 t= 17.305 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98234 A-V:  0.245 fd= 390 t= 17.306 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98233 A-V:  0.188 fd= 396 t= 17.306 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98232 A-V:  0.073 fd= 400 t= 17.306 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98231 A-V:  0.182 fd= 404 t= 17.306 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98230 A-V:  0.270 fd= 408 t= 17.306 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98229 A-V:  0.176 fd= 414 t= 17.307 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98227 A-V:  0.112 fd= 417 t= 17.307 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98227 A-V:  0.190 fd= 423 t= 17.307 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98225 A-V:  0.093 fd= 425 t= 17.307 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98224 A-V:  0.204 fd= 432 t= 17.307 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98223 A-V:  0.130 fd= 436 t= 17.308 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98222 A-V:  0.178 fd= 442 t= 17.308 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98221 A-V:  0.090 fd= 444 t= 17.308 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98220 A-V:  0.200 fd= 450 t= 17.308 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+speed=0.98219 A-V:  0.132 fd= 454 t= 17.308 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98218 A-V:  0.188 fd= 460 t= 17.308 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98217 A-V:  0.092 fd= 462 t= 17.309 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98216 A-V:  0.200 fd= 469 t= 17.309 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98215 A-V:  0.095 fd= 472 t= 17.309 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98214 A-V:  0.182 fd= 478 t= 17.309 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98213 A-V:  0.056 fd= 482 t= 17.309 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98212 A-V:  0.163 fd= 485 t= 17.310 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98211 A-V:  0.109 fd= 490 t= 17.310 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98210 A-V:  0.190 fd= 494 t= 17.310 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98209 A-V:  0.267 fd= 498 t= 17.310 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+speed=0.98208 A-V:  0.175 fd= 503 t= 17.310 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98207 A-V:  0.143 fd= 508 t= 17.310 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98206 A-V:  0.160 fd= 513 t= 17.311 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98205 A-V:  0.088 fd= 515 t= 17.311 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98204 A-V:  0.199 fd= 521 t= 17.311 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98203 A-V:  0.084 fd= 525 t= 17.311 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98201 A-V:  0.194 fd= 530 t= 17.311 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98200 A-V:  0.332 fd= 535 t= 17.312 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98199 A-V:  0.165 fd= 540 t= 17.312 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98198 A-V:  0.077 fd= 544 t= 17.312 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98197 A-V:  0.208 fd= 548 t= 17.312 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+speed=0.98196 A-V:  0.270 fd= 552 t= 17.312 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98195 A-V:  0.185 fd= 558 t= 17.312 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98194 A-V:  0.067 fd= 562 t= 17.313 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98193 A-V:  0.186 fd= 566 t= 17.313 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98192 A-V:  0.266 fd= 570 t= 17.313 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+speed=0.98191 A-V:  0.194 fd= 577 t= 17.313 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98190 A-V:  0.111 fd= 580 t= 17.313 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98189 A-V:  0.186 fd= 586 t= 17.314 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98188 A-V:  0.095 fd= 589 t= 17.314 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98187 A-V:  0.163 fd= 594 t= 17.314 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98186 A-V:  0.096 fd= 597 t= 17.314 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98185 A-V:  0.182 fd= 603 t= 17.314 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98184 A-V:  0.111 fd= 606 t= 17.315 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98183 A-V:  0.199 fd= 613 t= 17.315 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98182 A-V:  0.096 fd= 615 t= 17.315 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98181 A-V:  0.200 fd= 621 t= 17.315 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98179 A-V:  0.113 fd= 625 t= 17.315 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98178 A-V:  0.163 fd= 630 t= 17.315 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98177 A-V:  0.148 fd= 635 t= 17.316 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98176 A-V:  0.152 fd= 640 t= 17.316 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98175 A-V:  0.061 fd= 643 t= 17.316 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98174 A-V:  0.202 fd= 648 t= 17.316 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98173 A-V:  0.284 fd= 652 t= 17.316 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98172 A-V:  0.169 fd= 658 t= 17.316 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98171 A-V:  0.086 fd= 660 t= 17.317 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98170 A-V:  0.195 fd= 666 t= 17.317 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98169 A-V:  0.119 fd= 670 t= 17.317 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+speed=0.98168 A-V:  0.164 fd= 675 t= 17.317 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98167 A-V:  0.144 fd= 679 t= 17.317 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98166 A-V:  0.198 fd= 685 t= 17.318 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98165 A-V:  0.114 fd= 688 t= 17.318 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98164 A-V:  0.202 fd= 695 t= 17.318 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98162 A-V:  0.111 fd= 698 t= 17.318 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98162 A-V:  0.199 fd= 704 t= 17.318 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98160 A-V:  0.124 fd= 707 t= 17.319 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98159 A-V:  0.208 fd= 714 t= 17.319 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98158 A-V:  0.056 fd= 717 t= 17.319 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98157 A-V:  0.206 fd= 721 t= 17.319 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98156 A-V:  0.290 fd= 726 t= 17.319 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98156 A-V:  0.159 fd= 731 t= 17.319 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98154 A-V:  0.077 fd= 733 t= 17.320 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98153 A-V:  0.199 fd= 740 t= 17.320 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98152 A-V:  0.052 fd= 743 t= 17.320 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98151 A-V:  0.194 fd= 747 t= 17.320 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98150 A-V:  0.270 fd= 752 t= 17.320 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98149 A-V:  0.159 fd= 757 t= 17.321 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98148 A-V:  0.076 fd= 761 t= 17.321 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98147 A-V:  0.207 fd= 765 t= 17.321 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98146 A-V:  0.240 fd= 768 t= 17.321 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98145 A-V:  0.196 fd= 775 t= 17.321 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98144 A-V:  0.103 fd= 778 t= 17.321 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98143 A-V:  0.190 fd= 784 t= 17.322 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98142 A-V:  0.103 fd= 787 t= 17.322 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98141 A-V:  0.186 fd= 793 t= 17.322 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98140 A-V:  0.124 fd= 797 t= 17.322 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98139 A-V:  0.162 fd= 802 t= 17.322 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98138 A-V:  0.098 fd= 805 t= 17.323 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98137 A-V:  0.175 fd= 811 t= 17.323 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98135 A-V:  0.157 fd= 817 t= 17.323 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98135 A-V:  0.127 fd= 821 t= 17.323 temp=   17 sq=    0B f=0/0   [h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 7(SPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 8(PPS), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 5(IDR), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+[h264 @ 0x7fffd4259880] nal_unit_type: 9(AUD), nal_ref_idc: 0
+[h264 @ 0x7fffd4259880] nal_unit_type: 1(Coded slice of a non-IDR picture), nal_ref_idc: 3
+speed=0.98133 A-V:  0.094 fd= 824 t= 17.323 temp=   17 sq=    0B f=0/0   Not writing 'clli' atom. No content light level info.
+Not writing 'mdcv' atom. Missing mastering metadata.
+[AVIOContext @ 0x7fffd4005dc0] Statistics: 2 seeks, 13 writeouts
+[AVIOContext @ 0x7fffd400c8c0] Statistics: 2488822 bytes read, 0 seeks

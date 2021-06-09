@@ -1126,12 +1126,10 @@ int ffio_open_whitelist(AVIOContext **s, const char *filename, int flags,
     int err;
 
     *s = NULL;
-    printf("FFIO OPEN WHITELIST\n");
     err = ffurl_open_whitelist(&h, filename, flags, int_cb, options, whitelist, blacklist, NULL);
     if (err < 0)
         return err;
 
-    printf("FFIO FDOPEN\n");
     err = ffio_fdopen(s, h);
     if (err < 0) {
         ffurl_close(h);
