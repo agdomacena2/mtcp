@@ -1294,6 +1294,13 @@ static void stream_close(VideoState *is)
 	avformat_close_input(&is->ic);
 
 
+
+    if (is->oc && !(is->oc->oformat->flags & AVFMT_NOFILE)){
+        avio_closep(&is->oc->pb);
+    }
+    //avformat_free_context(is->oc);
+
+
 	packet_queue_destroy(&is->videoq);
 	packet_queue_destroy(&is->audioq);
 	packet_queue_destroy(&is->subtitleq);
@@ -1319,7 +1326,6 @@ static void do_exit(VideoState *is)
 {
 	if (is) {
 		stream_close(is);
-		mtcp_destroy();
 	}
 	if (renderer)
 		SDL_DestroyRenderer(renderer);
@@ -1334,6 +1340,7 @@ static void do_exit(VideoState *is)
 		printf("\n");
 	SDL_Quit();
 	av_log(NULL, AV_LOG_QUIET, "%s", "");
+	mtcp_destroy();
 	exit(0);
 }
 
@@ -1715,7 +1722,6 @@ display:
 		AVBPrint buf;
 		static int64_t last_time;
 		int64_t cur_time;
-		int64_t total_size;
 		int aqsize, vqsize, sqsize;
 		double av_diff;
 		double m_clock;
@@ -1752,6 +1758,7 @@ display:
 				temp = (int) t;
 				speed = temp / t ;
 			}
+
 
 			av_bprint_init(&buf, 0, AV_BPRINT_SIZE_AUTOMATIC);
 			av_bprintf(&buf,
@@ -2916,8 +2923,6 @@ static int read_thread(void *arg)
 	}
 
 	oformat = oc->oformat;
-	is->oc = oc;
-	is->oformat = oformat;
 
 	for (i = 0; i < ic->nb_streams; i++) {
 		AVStream *st = ic->streams[i];
@@ -2957,6 +2962,9 @@ static int read_thread(void *arg)
 		}
 	}
 
+	is->oc = oc;
+	is->oformat = oformat;
+
 	av_dump_format(oc, 0, out_filename, 1);
 
 	if (!(oformat->flags & AVFMT_NOFILE)) {
@@ -2965,12 +2973,15 @@ static int read_thread(void *arg)
 			av_log(NULL, AV_LOG_INFO, "Could not open output file '%s'\n", out_filename);
 			goto fail;
 		}
+		printf("RET = %d\n", ret);
 	}
 	ret = avformat_write_header(oc, NULL);
 	if (ret < 0) {
 		av_log(NULL, AV_LOG_INFO, "Error occurred when opening output file\n");
 		goto fail;
 	}
+
+
 
 	if (!video_disable)
 		st_index[AVMEDIA_TYPE_VIDEO] =

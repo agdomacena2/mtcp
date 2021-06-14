@@ -37,6 +37,8 @@
 #include "netlib.h"
 #include "debug.h"
 
+static const int ismtcp = 1;
+
 int ff_tls_init(void)
 {
 #if CONFIG_TLS_PROTOCOL
@@ -90,11 +92,16 @@ int ff_network_wait_fd_timeout(int fd, int write, int64_t timeout, AVIOInterrupt
     int64_t wait_start = 0;
 
     while (1) {
-        if (ff_check_interrupt(int_cb))
+        if (ff_check_interrupt(int_cb)){
             return AVERROR_EXIT;
+        }
         ret = ff_network_wait_fd(fd, write);
-        if (ret != AVERROR(EAGAIN))
+        if (ret != AVERROR(EAGAIN)){
             return ret;
+        }
+        if(ret == -11 && ismtcp == 1){
+            return 0;
+        }
         if (timeout > 0) {
             if (!wait_start)
                 wait_start = av_gettime_relative();
@@ -196,7 +203,7 @@ int ff_socket(mctx_t mctx, int af, int type, int proto)
 
 #ifdef SOCK_CLOEXEC
     if(mctx != NULL){
-        fd = mtcp_socket(mctx, af, type | SOCK_CLOEXEC, proto);
+        fd = mtcp_socket(mctx, af, type | SOCK_CLOEXEC, 0);
     }
     else{
         fd = socket(af, type | SOCK_CLOEXEC, proto);
@@ -206,7 +213,7 @@ int ff_socket(mctx_t mctx, int af, int type, int proto)
 #endif
     {
     if(mctx != NULL){
-        fd = mtcp_socket(mctx, af, type, proto);
+        fd = mtcp_socket(mctx, af, type, 0);
     }
     else{
         fd = socket(af, type, proto);
@@ -471,6 +478,7 @@ static int start_connect_attempt(mctx_t mctx, struct ConnectionAttempt *attempt,
         customize_fd(customize_ctx, attempt->fd);
 
     if (mctx != NULL){
+        //ret = mtcp_setsock_nonblock(mctx, attempt->fd);
     	while ((ret = mtcp_connect(mctx, attempt->fd, ai->ai_addr, ai->ai_addrlen))) {
     	    ret = ff_neterrno();
     	    switch (ret) {
