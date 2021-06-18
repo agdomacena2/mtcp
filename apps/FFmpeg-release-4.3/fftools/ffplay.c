@@ -2973,7 +2973,6 @@ static int read_thread(void *arg)
 			av_log(NULL, AV_LOG_INFO, "Could not open output file '%s'\n", out_filename);
 			goto fail;
 		}
-		printf("RET = %d\n", ret);
 	}
 	ret = avformat_write_header(oc, NULL);
 	if (ret < 0) {
@@ -3835,8 +3834,8 @@ int main(int argc, char **argv)
 
 	init_opts();
 
-	signal(SIGINT , sigterm_handler); /* Interrupt (ANSI).    */
-	signal(SIGTERM, sigterm_handler); /* Termination (ANSI).  */
+	//signal(SIGINT , sigterm_handler); /* Interrupt (ANSI).    */
+	//signal(SIGTERM, sigterm_handler); /* Termination (ANSI).  */
 	mtcp_register_signal(SIGINT, sigterm_handler);
 
 	show_banner(argc, argv, options);

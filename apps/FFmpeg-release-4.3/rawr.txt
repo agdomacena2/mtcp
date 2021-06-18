@@ -1,0 +1,30 @@
+start time = 13695.68
+EAL: Probing VFIO support...
+EAL: PCI device 0000:65:00.1 on NUMA socket 0
+EAL:   probe driver: 8086:1589 net_i40e
+PMD: Global register is changed during support QinQ parser
+PMD: Global register is changed during configure hash input set
+PMD: Global register is changed during configure fdir mask
+PMD: Global register is changed during configure hash mask
+PMD: Global register is changed during support QinQ cloud filter
+PMD: Global register is changed during disable FDIR flexible payload
+EAL: Auto-detected process type: PRIMARY
+Initializing port 0... Ethdev port_id=0 tx_queue_id=0, new added offloads 0x8011 must be within pre-queue offload capabilities 0x10000 in rte_eth_tx_queue_setup()
+
+Ethdev port_id=0 tx_queue_id=1, new added offloads 0x8011 must be within pre-queue offload capabilities 0x10000 in rte_eth_tx_queue_setup()
+
+Ethdev port_id=0 tx_queue_id=2, new added offloads 0x8011 must be within pre-queue offload capabilities 0x10000 in rte_eth_tx_queue_setup()
+
+Ethdev port_id=0 tx_queue_id=3, new added offloads 0x8011 must be within pre-queue offload capabilities 0x10000 in rte_eth_tx_queue_setup()
+
+Ethdev port_id=0 tx_queue_id=4, new added offloads 0x8011 must be within pre-queue offload capabilities 0x10000 in rte_eth_tx_queue_setup()
+
+Ethdev port_id=0 tx_queue_id=5, new added offloads 0x8011 must be within pre-queue offload capabilities 0x10000 in rte_eth_tx_queue_setup()
+
+done: 
+PMD: Global register is changed during configure water marker
+
+Checking link statusdone
+Port 0 Link Up - speed 1000 Mbps - full-duplex
+initialization Time =    5.67
+

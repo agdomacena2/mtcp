@@ -316,7 +316,7 @@ static int tcp_read(URLContext *h, uint8_t *buf, int size)
 		if(first_wait == 0){
 			first_wait = 1;
 			end_time = av_gettime_relative() / 1000000.0;
-
+			printf("initialization Time = %7.2f\n", end_time - start_time);
 		}
 		if (ret)
 			return ret;
@@ -378,7 +378,6 @@ static int tcp_close(URLContext *h)
 {
 	TCPContext *s = h->priv_data;
 
-	printf("initialization Time = %7.2f\n", end_time - start_time);
 	if(h->mctx != NULL){
 		mtcp_close(h->mctx, s->fd);
 		mtcp_destroy_context(h->mctx);
